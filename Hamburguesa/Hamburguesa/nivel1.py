@@ -55,7 +55,8 @@ class Level_01(Level):
             nivel_movimiento = [[MAYONESA, 1250, 220, 1150, 1650, 220, 220, 2, 0 ],
                                 [MAYONESA,3600, 250, 3600, 3600, 150, 400, 0, 2  ],
                                 [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
-                                [MAYONESA,8500, 90, 8250, 8900, 280, 280, 2.5, 0]]
+                                [MAYONESA,8500, 90, 8250, 8900, 90, 90, 2.5, 0],
+                                [MAYONESA, 9700, 90, 9400, 10200, 90, 90, 2.5, 0]]
         
         for platforma in nivel_movimiento:
             bloque = PlataformaConMovimiento(platforma[0])
