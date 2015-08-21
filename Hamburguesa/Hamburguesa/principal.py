@@ -55,6 +55,8 @@ def main():
                     jugador_principal.saltar()
                 if evento.key == pygame.K_ESCAPE:
                     salir = True
+                
+                    
 
             if evento.type == pygame.KEYUP:
                 if evento.key == pygame.K_LEFT and jugador_principal.mover_x < 0:

@@ -11,12 +11,12 @@ from funciones_spritesheet import SpriteSheet
 
 
 
-MAYONESA              = (0, 0, 154, 60)
-KETCHUP               = (154, 0, 146, 60)
-EMPITY                = (0, 66, 300, 334)
-LIMITE                = (0, 500, 1, 200)
-VERSION_LARGA         = (0, 0, 400, 60)
-MOVIMIENTO            = (0, 0, 154, 60)
+MAYONESA              = (0, 3, 153, 70)
+EMPITY                = (154, 0, 300, 70)
+EMPITY                = (0, 151, 0, 334)
+LIMITE                = (0, 75, 1, 200)
+VERSION_LARGA         = (154, 0, 300, 70)
+MOVIMIENTO            = (0, 0, 150, 70)
 
 class Plataforma(pygame.sprite.Sprite):
     """ Clase que define las caracteristicas de la plataforma del juego. """
@@ -25,7 +25,7 @@ class Plataforma(pygame.sprite.Sprite):
         """ Plataforma constructor."""
         pygame.sprite.Sprite.__init__(self)
 
-        sprite_sheet = SpriteSheet("imagenes/spritesheet.png")
+        sprite_sheet = SpriteSheet("imagenes/plataforma.png")
         # Grab the image for this platform
         self.image = sprite_sheet.obtener_imagen(sprite_sheet_data[0],
                                             sprite_sheet_data[1],
