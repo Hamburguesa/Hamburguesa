@@ -86,7 +86,6 @@ def main():
             jugador_principal.rect.x = 120
             nivel_actual.avance_nivel(diff)
 
-
         #Si el jugador se mueve hacia el fin del nivel cambia el jugador al siguiente nivel.
         current_position = jugador_principal.rect.x + nivel_actual.posicion_jugador_nivel
         if current_position < nivel_actual.limite_nivel:
