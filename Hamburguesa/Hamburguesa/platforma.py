@@ -14,7 +14,7 @@ from funciones_spritesheet import SpriteSheet
 MAYONESA              = (0, 3, 153, 70)
 EMPITY                = (154, 0, 300, 70)
 EMPITY                = (0, 151, 0, 334)
-LIMITE                = (0, 75, 1, 200)
+LIMITE                = (0, 75, 1, 400)
 VERSION_LARGA         = (154, 0, 300, 70)
 MOVIMIENTO            = (0, 0, 150, 70)
 

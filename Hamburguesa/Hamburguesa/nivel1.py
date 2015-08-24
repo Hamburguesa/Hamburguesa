@@ -17,30 +17,56 @@ class Level_01(Level):
 
         #Cargamos la imagen de fondo.
         self.fondo = pygame.image.load("imagenes/MesadaFFondo.png").convert()
-        self.fondo.set_colorkey(constantes.BLANCO)
-        self.limite_nivel = -12000
-        self.limit_nivel_suelo=500
-        self.limit_izquierdo=130
+        #self.fondo.set_colorkey(constantes.BLANCO)
+        self.limite_nivel = -25000
+        self.limit_nivel_suelo=550
+        self.limit_izquierdo=150
 
-        nivel = [ [LIMITE, 50, 250], 
-                  [MAYONESA, 500, 315],
+        nivel = [ [LIMITE, 50, 300], 
+                  [MAYONESA, 500, 355],
                   [MAYONESA, 900, 260],
-                  [LIMITE, 1700,250],
+                  [LIMITE, 1700,300],
                   [VERSION_LARGA, 2000,220],
                   [VERSION_LARGA, 2480, 220],
                   [VERSION_LARGA, 2950,120],
-                  [LIMITE,3340,250],
-                  [MOVIMIENTO, 4100, 120],
+                  [LIMITE, 3340,300],
                   [MAYONESA, 4522, 195],
                   [MAYONESA, 4950, 120],
-                  [LIMITE, 5400, 250],
+                  [LIMITE, 5400, 300],
                   [MAYONESA, 5500, 95],
                   [MAYONESA, 6000, 95],
-                  [MAYONESA,6500, 95],
-                  [MAYONESA, 7100,95],
-                  [LIMITE,7450,280],
-                  [MAYONESA,7800,95],
-                  [MAYONESA, 9200, 90]]
+                  [MAYONESA, 6500, 95],
+                  [MAYONESA, 7100, 95],
+                  [LIMITE, 7450, 300],
+                  [MAYONESA, 7800, 95],
+                  [LIMITE, 8361, 300],
+                  [MAYONESA, 9300, 90],
+                  [MAYONESA, 9700, 90],
+                  [MAYONESA, 10100, 150],
+                  [LIMITE, 10514, 300],
+                  [MAYONESA, 11100, 250],
+                  [MAYONESA, 11550, 180],
+                  [MAYONESA, 12050, 280],
+                  [MAYONESA, 12500, 350],
+                  [MAYONESA, 13000, 180],
+                  [MAYONESA, 13450, 250],
+                  [MAYONESA, 13950, 270],
+                  [MOVIMIENTO, 14450, 180],
+                  [MAYONESA, 14900, 350],
+                  [MAYONESA, 15400, 260],
+                  [MAYONESA, 15850, 260],
+                  [MOVIMIENTO, 16250, 170],
+                  [MAYONESA, 16700, 140],
+                  [MAYONESA, 17200, 170],
+                  [MAYONESA, 17650, 340],
+                  [MAYONESA, 18100, 260],
+                  [MAYONESA, 18600, 280],
+                  [MAYONESA, 19050, 280],
+                  [MAYONESA, 19550,170],
+                  [MAYONESA, 20050, 170],
+                  [MAYONESA, 20550, 380],
+                  [MAYONESA, 21000, 270],
+                  ]
                   
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al nivel.
@@ -53,10 +79,11 @@ class Level_01(Level):
 
 
 
-            nivel_movimiento = [[MAYONESA, 1250, 220, 1150, 1650, 220, 220, 2, 0 ],
-                                [MAYONESA,3600, 250, 3600, 3600, 150, 400, 0, 2  ],
+            nivel_movimiento = [[MAYONESA, 1250, 220, 1150, 1650, 220, 220, 2, 0],
+                                [MAYONESA, 3600, 250, 3600, 3600, 150, 450, 0, 2],
+                                [MAYONESA, 4100, 120, 3900, 4300, 120, 120, 2, 0],
                                 [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
-                                [MAYONESA,8500, 90, 8250, 8900, 90, 90, 2.5, 0]]
+                                [MAYONESA, 10600, 350,10600,10600,150, 450, 0, 2 ]]
         
         for platforma in nivel_movimiento:
             bloque = PlataformaConMovimiento(platforma[0])
@@ -73,17 +100,17 @@ class Level_01(Level):
             self.lista_plataformas.add(bloque)
         
        
-        """# Se agrega una plataforma en movimiento.
+        # Se agrega una plataforma en movimiento.
         bloque = PlataformaConMovimiento(MAYONESA)
-        bloque.rect.x = 1250
-        bloque.rect.y = 220
-        bloque.limite_izquierdo = 1150
-        bloque.limite_derecho = 1650
+        bloque.rect.x = 8500
+        bloque.rect.y = 90
+        bloque.limite_izquierdo = 8250 
+        bloque.limite_derecho = 8900
         bloque.mover_x = 2
         bloque.jugador = self.jugador
         bloque.nivel = self
         self.lista_plataformas.add(bloque)
-        
+        """
         bloque = PlataformaConMovimiento(MAYONESA)
         bloque.rect.x = 3600
         bloque.rect.y = 250

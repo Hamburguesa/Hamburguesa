@@ -120,6 +120,8 @@ class Player(pygame.sprite.Sprite):
         print "Pos en Y", self.rect.y
         print "Pos en X", self.rect.x
         print "Pos: ", self.nivel.posicion_jugador_nivel
+        
+        
     def calc_grav(self):
         """ Calcula el efecto de la gravedad. """
         

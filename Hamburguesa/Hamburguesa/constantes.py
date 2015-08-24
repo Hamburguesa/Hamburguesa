@@ -14,7 +14,7 @@ VERDE = (0,255,0)
 
 # Dimensiones de la pantalla
 ANCHO_PANTALLA  = 1000
-LARGO_PANTALLA = 800
+LARGO_PANTALLA = 600
 
 #Titulo del videojuego
 TITULO = "Comida Rapida"
