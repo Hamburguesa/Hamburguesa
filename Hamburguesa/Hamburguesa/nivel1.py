@@ -1,7 +1,7 @@
 import pygame
 import constantes
 from nivel import Level
-from platforma import LIMITE, MAYONESA, VERSION_LARGA, MOVIMIENTO, Plataforma, PlataformaConMovimiento
+from platforma import LIMITE, MAYONESA, SACHET, VERSION_LARGA, Plataforma, PlataformaConMovimiento
 
 class Level_01(Level):
     ''' Clase que define el primer nivel.
@@ -51,11 +51,9 @@ class Level_01(Level):
                   [MAYONESA, 13000, 180],
                   [MAYONESA, 13450, 250],
                   [MAYONESA, 13950, 270],
-                  [MOVIMIENTO, 14450, 180],
                   [MAYONESA, 14900, 350],
                   [MAYONESA, 15400, 260],
                   [MAYONESA, 15850, 260],
-                  [MOVIMIENTO, 16250, 170],
                   [MAYONESA, 16700, 140],
                   [MAYONESA, 17200, 170],
                   [MAYONESA, 17650, 340],
@@ -66,7 +64,9 @@ class Level_01(Level):
                   [MAYONESA, 20050, 170],
                   [MAYONESA, 20550, 380],
                   [MAYONESA, 21000, 270],
-                  ]
+                  [VERSION_LARGA, 21500, 260],
+                  [MAYONESA, 22118, 180],
+                  [MAYONESA, 22618, 170]]
                   
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al nivel.
@@ -83,8 +83,10 @@ class Level_01(Level):
                                 [MAYONESA, 3600, 250, 3600, 3600, 150, 450, 0, 2],
                                 [MAYONESA, 4100, 120, 3900, 4300, 120, 120, 2, 0],
                                 [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
-                                [MAYONESA, 10600, 350,10600,10600,150, 450, 0, 2 ]]
-        
+                                [MAYONESA, 10600, 350,10600,10600,150, 450, 0, 2],
+                                [MAYONESA, 14450, 180,14450,14450,150, 450, 0, 2],
+                                [MAYONESA, 16250, 170,16250,16250,150, 450, 0, 2]]
+         
         for platforma in nivel_movimiento:
             bloque = PlataformaConMovimiento(platforma[0])
             bloque.rect.x = platforma[1]
@@ -98,6 +100,15 @@ class Level_01(Level):
             bloque.jugador = self.jugador
             bloque.nivel = self
             self.lista_plataformas.add(bloque)
+            
+        nivel_puntos=[[SACHET, 500, 250]]
+        
+        for plataforma in nivel_puntos:
+            bloque = Plataforma(plataforma[0])
+            bloque.rect.x = plataforma[1]
+            bloque.rect.y = plataforma[2]
+            bloque.jugador = self.jugador
+            self.lista_puntos.add(bloque)
         
        
         # Se agrega una plataforma en movimiento.

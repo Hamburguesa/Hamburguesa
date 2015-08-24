@@ -18,7 +18,10 @@ def main():
 
     # Creamos al jugador con la imagen p1_walk.png
     jugador_principal = Player("imagenes/hamburguesa.png")
-
+    
+    
+    letraParaPuntos = pygame.font.Font(None,24)
+    
     # Creamos todos los niveles del juego
     lista_niveles = []
     lista_niveles.append(Level_01(jugador_principal))
@@ -99,6 +102,8 @@ def main():
         # TODO EL CODIGO PARA DIBUJAR DEBE IR DEBAJO DE ESTE COMENTARIO.
         nivel_actual.draw(pantalla)
         lista_sprites_activos.draw(pantalla)
+        textoPuntos = letraParaPuntos.render("Puntos: "+str(jugador_principal.puntos), 1,constantes.NEGRO)
+        pantalla.blit(textoPuntos,(10,10))
 
         # TODO EL CODIGO PARA DIBUJAR DEBE IR POR ARRIBA DE ESTE COMENTARIO.
 

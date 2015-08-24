@@ -16,7 +16,7 @@ EMPITY                = (154, 0, 300, 70)
 EMPITY                = (0, 151, 0, 334)
 LIMITE                = (0, 75, 1, 400)
 VERSION_LARGA         = (154, 0, 300, 70)
-MOVIMIENTO            = (0, 0, 150, 70)
+SACHET                = (0, 0, 40, 40)
 
 class Plataforma(pygame.sprite.Sprite):
     """ Clase que define las caracteristicas de la plataforma del juego. """
