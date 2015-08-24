@@ -57,16 +57,15 @@ class Level_01(Level):
                   [MAYONESA, 16700, 140],
                   [MAYONESA, 17200, 170],
                   [MAYONESA, 17650, 340],
-                  [MAYONESA, 18100, 260],
-                  [MAYONESA, 18600, 280],
-                  [MAYONESA, 19050, 280],
                   [MAYONESA, 19550,170],
                   [MAYONESA, 20050, 170],
                   [MAYONESA, 20550, 380],
                   [MAYONESA, 21000, 270],
                   [VERSION_LARGA, 21500, 260],
                   [MAYONESA, 22118, 180],
-                  [MAYONESA, 22618, 170]]
+                  [MAYONESA, 22618, 170],
+                  [VERSION_LARGA, 23118, 190],
+                  [MAYONESA, 23718, 240]]
                   
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al nivel.
@@ -85,7 +84,8 @@ class Level_01(Level):
                                 [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
                                 [MAYONESA, 10600, 350,10600,10600,150, 450, 0, 2],
                                 [MAYONESA, 14450, 180,14450,14450,150, 450, 0, 2],
-                                [MAYONESA, 16250, 170,16250,16250,150, 450, 0, 2]]
+                                [MAYONESA, 16250, 170,16250,16250,150, 450, 0, 2],
+                                [MAYONESA, 18600, 280,18100,19050,280, 280, 2, 0]]
          
         for platforma in nivel_movimiento:
             bloque = PlataformaConMovimiento(platforma[0])

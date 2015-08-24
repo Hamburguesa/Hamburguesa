@@ -24,6 +24,7 @@ def main():
     
     # Creamos todos los niveles del juego
     lista_niveles = []
+
     lista_niveles.append(Level_01(jugador_principal))
     lista_niveles.append(Level_02(jugador_principal))
 

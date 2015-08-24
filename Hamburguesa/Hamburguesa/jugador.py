@@ -134,7 +134,7 @@ class Player(pygame.sprite.Sprite):
         if self.mover_y == 0:
             self.mover_y = 1
         else:
-            self.mover_y += .25
+            self.mover_y += .025
 
         # Verificamos si estamos en el suelo.
         if self.rect.y >= self.nivel.limit_nivel_suelo - self.rect.height and self.mover_y >= 0:
@@ -160,7 +160,7 @@ class Player(pygame.sprite.Sprite):
     def avanzar(self):
         """ Se llama cuando movemos hacia la der. """
         
-        self.mover_x = 10
+        self.mover_x = 100
         self.direccion = "R"
 
     def parar(self):
