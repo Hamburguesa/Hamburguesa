@@ -5,6 +5,7 @@ import constantes
 from platforma import PlataformaConMovimiento
 from funciones_spritesheet import SpriteSheet
 
+pygame.mixer.init()
 class Player(pygame.sprite.Sprite):
     """Clase utilizada para desarrollar los jugadores del juego. """
     
@@ -23,7 +24,8 @@ class Player(pygame.sprite.Sprite):
     nivel = None
     
     puntos = 0
-
+    sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
+    sonido2 = pygame.mixer.Sound("sonidos/colision.wav")
     # -- Metodos
     def __init__(self,ruta):
         """ __Funcion constructor__ 
@@ -98,6 +100,7 @@ class Player(pygame.sprite.Sprite):
         for block in lista_de_bloques_colisionados:
             if self.mover_x > 0:
                 self.rect.right = block.rect.left
+                self.sonido2.play()
             elif self.mover_x < 0:
                 self.rect.left = block.rect.right
 
@@ -121,6 +124,8 @@ class Player(pygame.sprite.Sprite):
         for un_punto in lista_de_puntos:
             un_punto.kill()
             self.puntos +=1
+            self.sonido1.play()
+            
         #Posicion del jugador en el nivel
         
         print "Pos en Y", self.rect.y
@@ -134,7 +139,7 @@ class Player(pygame.sprite.Sprite):
         if self.mover_y == 0:
             self.mover_y = 1
         else:
-            self.mover_y += .025
+            self.mover_y += .25
 
         # Verificamos si estamos en el suelo.
         if self.rect.y >= self.nivel.limit_nivel_suelo - self.rect.height and self.mover_y >= 0:
@@ -160,7 +165,7 @@ class Player(pygame.sprite.Sprite):
     def avanzar(self):
         """ Se llama cuando movemos hacia la der. """
         
-        self.mover_x = 100
+        self.mover_x = 10
         self.direccion = "R"
 
     def parar(self):

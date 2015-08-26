@@ -65,7 +65,8 @@ class Level_01(Level):
                   [MAYONESA, 22118, 180],
                   [MAYONESA, 22618, 170],
                   [VERSION_LARGA, 23118, 190],
-                  [MAYONESA, 23718, 240]]
+                  [MAYONESA, 23718, 240],
+                  [LIMITE, 23218, 300]]
                   
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al nivel.
@@ -101,7 +102,16 @@ class Level_01(Level):
             bloque.nivel = self
             self.lista_plataformas.add(bloque)
             
-        nivel_puntos=[[SACHET, 500, 250]]
+        nivel_puntos=[[SACHET, 500, 200],
+                      [SACHET, 3000, 28],
+                      [SACHET, 7800, 9],
+                      [SACHET, 9800, 11],
+                      [SACHET, 12550, 220],
+                      [SACHET, 15000, 300],
+                      [SACHET, 17750, 100],
+                      [SACHET, 22000, 500],
+                      [SACHET, 23218, 90],
+                      [SACHET, 24218, 160]]
         
         for plataforma in nivel_puntos:
             bloque = Plataforma(plataforma[0])
