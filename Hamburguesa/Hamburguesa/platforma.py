@@ -1,5 +1,5 @@
 import pygame
-
+from constantes import NEGRO
 from funciones_spritesheet import SpriteSheet
 
 # Estas contantes definen el tipo de plataforma.
@@ -11,11 +11,11 @@ from funciones_spritesheet import SpriteSheet
 
 
 
-MAYONESA              = (0, 3, 153, 70)
+MAYONESA              = (3, 3, 230, 75)
 EMPITY                = (154, 0, 300, 70)
 EMPITY                = (0, 151, 0, 334)
 LIMITE                = (0, 75, 1, 400)
-VERSION_LARGA         = (154, 0, 300, 70)
+VERSION_LARGA         = (230, 0, 325, 60)
 SACHET                = (0, 0, 40, 40)
 
 class Plataforma(pygame.sprite.Sprite):
@@ -25,7 +25,7 @@ class Plataforma(pygame.sprite.Sprite):
         """ Plataforma constructor."""
         pygame.sprite.Sprite.__init__(self)
 
-        sprite_sheet = SpriteSheet("imagenes/plataforma.png")
+        sprite_sheet = SpriteSheet("imagenes/CuchilloPlataforma.png")
         # Grab the image for this platform
         self.image = sprite_sheet.obtener_imagen(sprite_sheet_data[0],
                                             sprite_sheet_data[1],

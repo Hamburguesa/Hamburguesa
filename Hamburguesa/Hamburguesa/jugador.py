@@ -103,6 +103,7 @@ class Player(pygame.sprite.Sprite):
                 self.sonido2.play()
             elif self.mover_x < 0:
                 self.rect.left = block.rect.right
+                self.sonido2.play()
 
         self.rect.y += self.mover_y
 
@@ -114,7 +115,7 @@ class Player(pygame.sprite.Sprite):
                 self.rect.bottom = block.rect.top
             elif self.mover_y < 0:
                 self.rect.top = block.rect.bottom
-
+                self.sonido2.play()
             self.mover_y = 0
 
             if isinstance(block, PlataformaConMovimiento):

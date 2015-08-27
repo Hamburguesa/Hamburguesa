@@ -16,7 +16,7 @@ class Level_01(Level):
         Level.__init__(self, jugador)
 
         #Cargamos la imagen de fondo.
-        self.fondo = pygame.image.load("imagenes/MesadaFFondo.png").convert()
+        self.fondo = pygame.image.load("imagenes/MesadaFondoFIN.png").convert()
         #self.fondo.set_colorkey(constantes.BLANCO)
         self.limite_nivel = -25000
         self.limit_nivel_suelo=550
