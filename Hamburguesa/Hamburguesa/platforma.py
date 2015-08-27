@@ -15,8 +15,8 @@ MAYONESA              = (3, 3, 230, 75)
 EMPITY                = (154, 0, 300, 70)
 EMPITY                = (0, 151, 0, 334)
 LIMITE                = (0, 75, 1, 400)
-VERSION_LARGA         = (230, 0, 325, 60)
-SACHET                = (0, 0, 40, 40)
+VERSION_LARGA         = (230, 0, 315, 60)
+SACHET                = (560, 0, 70, 70)
 
 class Plataforma(pygame.sprite.Sprite):
     """ Clase que define las caracteristicas de la plataforma del juego. """
