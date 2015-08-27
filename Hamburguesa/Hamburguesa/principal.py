@@ -13,7 +13,10 @@ def main():
     # Configuramos el alto y largo de la pantalla
     tamanio = [constantes.ANCHO_PANTALLA, constantes.LARGO_PANTALLA]
     pantalla = pygame.display.set_mode(tamanio)
-
+    
+    #Sonido principal
+    sonido3 = pygame.mixer.Sound("sonidos/FondoSound.wav")
+    sonido3.play(-1)
     pygame.display.set_caption("Comida rapida")
 
     # Creamos al jugador con la imagen p1_walk.png
