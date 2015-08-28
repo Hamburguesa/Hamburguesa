@@ -24,6 +24,7 @@ def main():
     
     
     letraParaPuntos = pygame.font.Font(None,24)
+    letraParaVidas  = pygame.font.Font(None,24)
     
     # Creamos todos los niveles del juego
     lista_niveles = []
@@ -41,6 +42,8 @@ def main():
     jugador_principal.rect.x = 240
     jugador_principal.rect.y = constantes.LARGO_PANTALLA - jugador_principal.rect.height -120
     lista_sprites_activos.add(jugador_principal)
+    
+    letraParaMarcador = pygame.font.Font(None, 36)
 
     #Variable booleano que nos avisa cuando el usuario aprieta el botOn salir.
     salir = False
@@ -70,6 +73,8 @@ def main():
                     jugador_principal.parar()
                 if evento.key == pygame.K_RIGHT and jugador_principal.mover_x > 0:
                     jugador_principal.parar()
+
+
 
 
         # Actualiza todo el jugador
@@ -108,13 +113,26 @@ def main():
         lista_sprites_activos.draw(pantalla)
         textoPuntos = letraParaPuntos.render("Puntos: "+str(jugador_principal.puntos), 1,constantes.NEGRO)
         pantalla.blit(textoPuntos,(10,10))
-
+        textoVidas = letraParaVidas.render("Vidas: "+str(jugador_principal.vidas), 1,constantes.NEGRO)
+        pantalla.blit(textoVidas,(900,10))
+        
+        
         # TODO EL CODIGO PARA DIBUJAR DEBE IR POR ARRIBA DE ESTE COMENTARIO.
+
+
+
 
         clock.tick(60)
 
         pygame.display.flip()
 
+        if jugador_principal.vidas == 0:
+            pantalla.fill(constantes.NEGRO)
+            texto_gameover = letraParaMarcador.render("GAME OVER!,  Presione cualquier tecla para volver a jugar.", 1, constantes.ROJO)
+            pantalla.blit(texto_gameover, [100, 250])
+            pygame.display.flip()
+            pygame.event.wait()
+            salir = True
     pygame.quit()
 
 if __name__ == "__main__":

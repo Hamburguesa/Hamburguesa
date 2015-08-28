@@ -10,6 +10,7 @@ class Level():
     lista_plataformas = None
     lista_enemigos = None
     lista_puntos = None
+    lista_vidas = None
 
     # Imagen de fondo
     fondo = None
@@ -25,6 +26,7 @@ class Level():
         self.lista_plataformas = pygame.sprite.Group()
         self.lista_enemigos = pygame.sprite.Group()
         self.lista_puntos = pygame.sprite.Group()
+        self.lista_vidas = pygame.sprite.Group()
         self.jugador = jugador
 
 
@@ -33,6 +35,7 @@ class Level():
         self.lista_plataformas.update()
         self.lista_enemigos.update()
         self.lista_puntos.update()
+        self.lista_vidas
 
     def draw(self, pantalla):
         """ Dibujamos todo sobre el nivel. """

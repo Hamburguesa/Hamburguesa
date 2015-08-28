@@ -1,7 +1,7 @@
 import pygame
 import constantes
 from nivel import Level
-from platforma import LIMITE, MAYONESA, SACHET, VERSION_LARGA, Plataforma, PlataformaConMovimiento
+from platforma import LIMITE, MAYONESA, SACHET, VERSION_LARGA, Plataforma, PlataformaConMovimiento, EMPITY
 
 class Level_01(Level):
     ''' Clase que define el primer nivel.
@@ -56,7 +56,7 @@ class Level_01(Level):
                   [MAYONESA, 15850, 260],
                   [MAYONESA, 16700, 140],
                   [MAYONESA, 17200, 170],
-                  [MAYONESA, 17650, 340],
+                  [MAYONESA, 17650, 420],
                   [MAYONESA, 19550,170],
                   [MAYONESA, 20050, 170],
                   [MAYONESA, 20550, 380],
@@ -119,6 +119,27 @@ class Level_01(Level):
             bloque.rect.y = plataforma[2]
             bloque.jugador = self.jugador
             self.lista_puntos.add(bloque)
+            
+        nivel_enemigos=[[MAYONESA, 500, 400, 300, 600, 200, 200, 2, 0],
+                        [MAYONESA, 900, 345, 700, 1000, 345, 345, 2, 0]]
+              
+        
+        
+        
+        
+        for platforma in nivel_enemigos:
+            bloque = PlataformaConMovimiento(platforma[0])
+            bloque.rect.x = platforma[1]
+            bloque.rect.y = platforma[2]
+            bloque.limite_izquierdo = platforma[3]
+            bloque.limite_derecho = platforma[4]
+            bloque.limite_superior = platforma[5]
+            bloque.limite_inferior = platforma[6]
+            bloque.mover_x = platforma[7]
+            bloque.mover_y = platforma[8]
+            bloque.jugador = self.jugador
+            bloque.nivel = self
+            self.lista_enemigos.add(bloque)
         
        
         # Se agrega una plataforma en movimiento.
@@ -131,19 +152,13 @@ class Level_01(Level):
         bloque.jugador = self.jugador
         bloque.nivel = self
         self.lista_plataformas.add(bloque)
-        """
-        bloque = PlataformaConMovimiento(MAYONESA)
-        bloque.rect.x = 3600
-        bloque.rect.y = 250
-        bloque.limite_inferior = 400
-        bloque.limite_superior = 150
-        bloque.mover_y = 1
+        
+        """bloque = PlataformaConMovimiento(MAYONESA)
+        bloque.rect.x = 17650
+        bloque.rect.y = 340
+        bloque.limite_inferior = 380
+        bloque.limite_superior = 280
+        bloque.mover_y = 2
         bloque.jugador = self.jugador
         bloque.nivel = self
         self.lista_plataformas.add(bloque)"""
-        
-        
-
-
-
-

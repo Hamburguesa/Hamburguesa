@@ -1,5 +1,5 @@
 import pygame
-
+import nivel
 import constantes
 
 from platforma import PlataformaConMovimiento
@@ -23,6 +23,7 @@ class Player(pygame.sprite.Sprite):
     # Lista de sprite con las cosas que nos podemos chocar.
     nivel = None
     
+    vidas = 5
     puntos = 0
     sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
     sonido2 = pygame.mixer.Sound("sonidos/colision.wav")
@@ -126,6 +127,11 @@ class Player(pygame.sprite.Sprite):
             un_punto.kill()
             self.puntos +=1
             self.sonido1.play()
+            
+        lista_de_enemigos = pygame.sprite.spritecollide(self, self.nivel.lista_enemigos, False)
+        for un_enemigo in lista_de_enemigos:
+            un_enemigo.kill()
+            self.vidas -=1
             
         #Posicion del jugador en el nivel
         
