@@ -43,7 +43,8 @@ def main():
     jugador_principal.rect.y = constantes.LARGO_PANTALLA - jugador_principal.rect.height -120
     lista_sprites_activos.add(jugador_principal)
     
-    letraParaMarcador = pygame.font.Font(None, 36)
+    letraParaMarcador1 = pygame.font.Font(None, 56)
+    letraParaMarcador2 = pygame.font.Font(None, 36)
 
     #Variable booleano que nos avisa cuando el usuario aprieta el botOn salir.
     salir = False
@@ -128,8 +129,10 @@ def main():
 
         if jugador_principal.vidas == 0:
             pantalla.fill(constantes.NEGRO)
-            texto_gameover = letraParaMarcador.render("GAME OVER!,  Presione cualquier tecla para volver a jugar.", 1, constantes.ROJO)
-            pantalla.blit(texto_gameover, [100, 250])
+            texto_gameover1 = letraParaMarcador1.render("GAME OVER", 1, constantes.ROJO)
+            texto_gameover2 = letraParaMarcador2.render("Presione cualquier tecla para volver a jugar", 1, constantes.ROJO)
+            pantalla.blit(texto_gameover1, [300, 250])
+            pantalla.blit(texto_gameover2, [200, 310])
             pygame.display.flip()
             pygame.event.wait()
             salir = True

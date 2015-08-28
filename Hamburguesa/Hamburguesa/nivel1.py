@@ -1,7 +1,7 @@
 import pygame
 import constantes
 from nivel import Level
-from platforma import LIMITE, MAYONESA, SACHET, VERSION_LARGA, Plataforma, PlataformaConMovimiento, EMPITY
+from platforma import LIMITE, MAYONESA, ENEMY, SACHET, VERSION_LARGA, Plataforma, PlataformaConMovimiento
 
 class Level_01(Level):
     ''' Clase que define el primer nivel.
@@ -120,8 +120,11 @@ class Level_01(Level):
             bloque.jugador = self.jugador
             self.lista_puntos.add(bloque)
             
-        nivel_enemigos=[[MAYONESA, 500, 400, 300, 600, 200, 200, 2, 0],
-                        [MAYONESA, 900, 345, 700, 1000, 345, 345, 2, 0]]
+        nivel_enemigos=[[ENEMY, 500, 400, 300, 600, 200, 200, 2, 0],
+                        [ENEMY, 900, 345, 700, 1000, 345, 345, 2, 0],
+                        [ENEMY, 900, 235, 700, 1000, 345, 345, 2, 0],
+                        [ENEMY, 500, 300, 300, 600, 200, 200, 2, 0],
+                        [ENEMY, 500, 300, 300, 600, 200, 200, 2, 0]]
               
         
         

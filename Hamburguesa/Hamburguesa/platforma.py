@@ -12,7 +12,7 @@ from funciones_spritesheet import SpriteSheet
 
 
 MAYONESA              = (3, 3, 230, 75)
-EMPITY                = (3, 3, 230, 75)
+ENEMY                 = (625, 0, 100, 100)
 EMPITY2               = (0, 151, 0, 334)
 LIMITE                = (0, 75, 1, 400)
 VERSION_LARGA         = (230, 0, 315, 60)
