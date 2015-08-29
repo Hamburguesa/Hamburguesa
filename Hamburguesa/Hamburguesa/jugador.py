@@ -26,7 +26,7 @@ class Player(pygame.sprite.Sprite):
     vidas = 5
     puntos = 0
     sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
-    sonido2 = pygame.mixer.Sound("sonidos/colision.wav")
+    sonido2 = pygame.mixer.Sound("sonidos/CuchilloPlat.wav")
     # -- Metodos
     def __init__(self,ruta):
         """ __Funcion constructor__ 

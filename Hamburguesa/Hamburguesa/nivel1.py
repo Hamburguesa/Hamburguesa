@@ -17,7 +17,7 @@ class Level_01(Level):
 
         #Cargamos la imagen de fondo.
         self.fondo = pygame.image.load("imagenes/MesadaFondo.png").convert()
-        #self.fondo.set_colorkey(constantes.BLANCO)
+        self.fondo.set_colorkey(constantes.BLANCO)
         self.limite_nivel = -25000
         self.limit_nivel_suelo=550
         self.limit_izquierdo=150
@@ -30,11 +30,10 @@ class Level_01(Level):
                   [VERSION_LARGA, 2480, 220],
                   [VERSION_LARGA, 2950,120],
                   [LIMITE, 3340,300],
-                  [MAYONESA, 4522, 195],
-                  [MAYONESA, 4950, 120],
+                  [VERSION_LARGA, 4650, 120],
                   [LIMITE, 5400, 300],
-                  [MAYONESA, 5500, 95],
-                  [MAYONESA, 6000, 95],
+                  [MAYONESA, 5300, 95],
+                  [VERSION_LARGA, 5750, 95],
                   [MAYONESA, 6500, 95],
                   [MAYONESA, 7100, 95],
                   [LIMITE, 7450, 300],
@@ -120,11 +119,12 @@ class Level_01(Level):
             bloque.jugador = self.jugador
             self.lista_puntos.add(bloque)
             
-        nivel_enemigos=[[ENEMY, 500, 400, 300, 600, 200, 200, 2, 0],
-                        [ENEMY, 900, 345, 700, 1000, 345, 345, 2, 0],
-                        [ENEMY, 900, 235, 700, 1000, 345, 345, 2, 0],
-                        [ENEMY, 500, 300, 300, 600, 200, 200, 2, 0],
-                        [ENEMY, 500, 300, 300, 600, 200, 200, 2, 0]]
+        #Lista de enemigos (solo del principio del nivel dado que no eran necesarios)  
+        nivel_enemigos=[[ENEMY, 500, 300, 300, 700, 200, 200, 2, 0],
+                        [ENEMY, 900, 205, 700, 1050, 345, 345,2, 0],
+                        [ENEMY, 1658, 100, 1658,1658,100, 100, 0,0],
+                        [ENEMY, 3598, 478, 3500,3798, 478,478,2 ,0],
+                        [ENEMY, 4700, 80, 4700, 5000, 80, 80, 2, 0]]
               
         
         
