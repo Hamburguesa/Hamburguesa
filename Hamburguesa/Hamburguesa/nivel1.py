@@ -1,7 +1,7 @@
 import pygame
 import constantes
 from nivel import Level
-from platforma import LIMITE, MAYONESA, ENEMY, SACHET, VERSION_LARGA, Plataforma, PlataformaConMovimiento
+from platforma import LIMITE, MAYONESA, ENEMY, SACHET, VERSION_LARGA, Plataforma, BEBIDAS, PlataformaConMovimiento
 
 class Level_01(Level):
     ''' Clase que define el primer nivel.
@@ -22,28 +22,22 @@ class Level_01(Level):
         self.limit_nivel_suelo=550
         self.limit_izquierdo=150
 
-        nivel = [ [LIMITE, 50, 300], 
+        nivel = [ [LIMITE, 150, 300], 
                   [MAYONESA, 500, 355],
                   [MAYONESA, 900, 260],
-                  [LIMITE, 1700,300],
                   [VERSION_LARGA, 2000,220],
                   [VERSION_LARGA, 2480, 220],
                   [VERSION_LARGA, 2950,120],
-                  [LIMITE, 3340,300],
                   [VERSION_LARGA, 4650, 120],
-                  [LIMITE, 5400, 300],
                   [MAYONESA, 5300, 95],
                   [VERSION_LARGA, 5750, 95],
                   [MAYONESA, 6500, 95],
                   [MAYONESA, 7100, 95],
-                  [LIMITE, 7450, 300],
                   [MAYONESA, 7800, 95],
-                  [LIMITE, 8361, 300],
                   [MAYONESA, 9300, 90],
                   [MAYONESA, 9700, 90],
-                  [MAYONESA, 10100, 150],
-                  [LIMITE, 10514, 300],
-                  [MAYONESA, 11100, 250],
+                  [VERSION_LARGA, 10350, 150],
+                  [LIMITE, 9860, 300],
                   [MAYONESA, 11550, 180],
                   [MAYONESA, 12050, 280],
                   [MAYONESA, 12500, 350],
@@ -65,7 +59,11 @@ class Level_01(Level):
                   [MAYONESA, 22618, 170],
                   [VERSION_LARGA, 23118, 190],
                   [MAYONESA, 23718, 240],
-                  [LIMITE, 23218, 300]]
+                  [LIMITE, 23218, 300],
+                  [MAYONESA, 24218, 250],
+                  [MAYONESA, 24718, 180],
+                  [MAYONESA, 25218, 234],
+                  [MAYONESA, 25718, 290]]
                   
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al nivel.
@@ -82,7 +80,7 @@ class Level_01(Level):
                                 [MAYONESA, 3600, 250, 3600, 3600, 150, 450, 0, 2],
                                 [MAYONESA, 4100, 120, 3900, 4300, 120, 120, 2, 0],
                                 [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
-                                [MAYONESA, 10600, 350,10600,10600,150, 450, 0, 2],
+                                [MAYONESA, 10900, 350,10600,10600,150, 450, 0, 2],
                                 [MAYONESA, 14450, 180,14450,14450,150, 450, 0, 2],
                                 [MAYONESA, 16250, 170,16250,16250,150, 450, 0, 2],
                                 [MAYONESA, 18600, 280,18100,19050,280, 280, 2, 0]]

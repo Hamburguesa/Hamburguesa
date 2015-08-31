@@ -12,8 +12,8 @@ from funciones_spritesheet import SpriteSheet
 
 MAYONESA              = (3, 3, 230, 75)
 ENEMY                 = (625, 0, 100, 100)
-EMPITY2               = (0, 151, 0, 334)
-LIMITE                = (0, 75, 1, 400)
+BEBIDAS               = (0, 75, 1640, 1)
+LIMITE                = (0, 120, 50, 400)
 VERSION_LARGA         = (230, 0, 315, 60)
 SACHET                = (560, 0, 60, 70)
 
