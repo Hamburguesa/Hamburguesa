@@ -146,7 +146,7 @@ class Player(pygame.sprite.Sprite):
         if self.mover_y == 0:
             self.mover_y = 1
         else:
-            self.mover_y += .025
+            self.mover_y += .15
 
         # Verificamos si estamos en el suelo.
         if self.rect.y >= self.nivel.limit_nivel_suelo - self.rect.height and self.mover_y >= 0:

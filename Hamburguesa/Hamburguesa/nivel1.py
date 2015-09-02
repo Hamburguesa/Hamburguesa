@@ -1,7 +1,7 @@
 import pygame
 import constantes
 from nivel import Level
-from platforma import LIMITE, MAYONESA, ENEMY, SACHET, VERSION_LARGA, Plataforma, BEBIDAS, PlataformaConMovimiento
+from platforma import LIMITE, MAYONESA, ENEMY, SACHET, VERSION_LARGA, Plataforma, TACHO, PlataformaConMovimiento
 
 class Level_01(Level):
     ''' Clase que define el primer nivel.
@@ -44,12 +44,13 @@ class Level_01(Level):
                   [MAYONESA, 13000, 180],
                   [MAYONESA, 13450, 250],
                   [MAYONESA, 13950, 270],
-                  [MAYONESA, 14900, 350],
-                  [MAYONESA, 15400, 260],
+                  [VERSION_LARGA, 14375, 190],
+                  [MAYONESA, 15200, 260],
                   [MAYONESA, 15850, 260],
-                  [MAYONESA, 16700, 140],
-                  [MAYONESA, 17200, 170],
-                  [MAYONESA, 17650, 420],
+                  [MAYONESA, 16600, 140],
+                  [MAYONESA, 17050, 170],
+                  [LIMITE, 17478, 250],
+                  [MAYONESA, 17850, 420],
                   [MAYONESA, 19550,170],
                   [MAYONESA, 20050, 170],
                   [MAYONESA, 20550, 380],
@@ -59,11 +60,11 @@ class Level_01(Level):
                   [MAYONESA, 22618, 170],
                   [VERSION_LARGA, 23118, 190],
                   [MAYONESA, 23718, 240],
-                  [LIMITE, 23218, 300],
+                  [LIMITE, 24818, 300],
                   [MAYONESA, 24218, 250],
                   [MAYONESA, 24718, 180],
                   [MAYONESA, 25218, 234],
-                  [MAYONESA, 25718, 290]]
+                  [VERSION_LARGA, 25718, 290]]
                   
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al nivel.
@@ -81,9 +82,8 @@ class Level_01(Level):
                                 [MAYONESA, 4100, 120, 3900, 4300, 120, 120, 2, 0],
                                 [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
                                 [MAYONESA, 10900, 350,10600,10600,150, 450, 0, 2],
-                                [MAYONESA, 14450, 180,14450,14450,150, 450, 0, 2],
                                 [MAYONESA, 16250, 170,16250,16250,150, 450, 0, 2],
-                                [MAYONESA, 18600, 280,18100,19050,280, 280, 2, 0]]
+                                [VERSION_LARGA, 18600, 280,18100,19050,280, 280, 2, 0]]
          
         for platforma in nivel_movimiento:
             bloque = PlataformaConMovimiento(platforma[0])
@@ -106,6 +106,8 @@ class Level_01(Level):
                       [SACHET, 12550, 220],
                       [SACHET, 15000, 300],
                       [SACHET, 17750, 100],
+                      [SACHET, 19550, 100],
+                      [SACHET, 20050, 103],
                       [SACHET, 22000, 500],
                       [SACHET, 23218, 90],
                       [SACHET, 24218, 160]]
