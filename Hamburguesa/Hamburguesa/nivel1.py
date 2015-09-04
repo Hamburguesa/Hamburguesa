@@ -23,7 +23,7 @@ class Level_01(Level):
         self.limit_izquierdo=150
 
         nivel = [ [LIMITE, 150, 300], 
-                  [MAYONESA, 500, 355],
+                  [VERSION_LARGA, 450, 355],
                   [MAYONESA, 900, 260],
                   [VERSION_LARGA, 2000,220],
                   [VERSION_LARGA, 2480, 220],
@@ -36,11 +36,11 @@ class Level_01(Level):
                   [MAYONESA, 7800, 95],
                   [MAYONESA, 9300, 90],
                   [MAYONESA, 9700, 90],
-                  [VERSION_LARGA, 10350, 150],
                   [LIMITE, 9860, 300],
+                  [VERSION_LARGA, 10350, 150],
                   [MAYONESA, 11550, 180],
                   [MAYONESA, 12050, 280],
-                  [MAYONESA, 12500, 350],
+                  [VERSION_LARGA, 12500, 350],
                   [MAYONESA, 13000, 180],
                   [MAYONESA, 13450, 250],
                   [MAYONESA, 13950, 270],
@@ -51,8 +51,8 @@ class Level_01(Level):
                   [MAYONESA, 17050, 170],
                   [LIMITE, 17478, 250],
                   [MAYONESA, 17850, 420],
-                  [MAYONESA, 19550,170],
-                  [MAYONESA, 20050, 170],
+                  [VERSION_LARGA, 19550,170],
+                  [MAYONESA, 20150, 170],
                   [MAYONESA, 20550, 380],
                   [MAYONESA, 21000, 270],
                   [VERSION_LARGA, 21500, 260],
@@ -62,9 +62,7 @@ class Level_01(Level):
                   [MAYONESA, 23718, 240],
                   [LIMITE, 24818, 300],
                   [MAYONESA, 24218, 250],
-                  [MAYONESA, 24718, 180],
-                  [MAYONESA, 25218, 234],
-                  [VERSION_LARGA, 25718, 290]]
+                  [VERSION_LARGA, 24718, 180]]
                   
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al nivel.
@@ -120,11 +118,15 @@ class Level_01(Level):
             self.lista_puntos.add(bloque)
             
         #Lista de enemigos (solo del principio del nivel dado que no eran necesarios)  
-        nivel_enemigos=[[ENEMY, 500, 300, 300, 700, 200, 200, 2, 0],
-                        [ENEMY, 900, 205, 700, 1050, 345, 345,2, 0],
-                        [ENEMY, 1658, 100, 1658,1658,100, 100, 0,0],
+        nivel_enemigos=[[ENEMY, 500, 300, 450, 650, 315, 320, 2, 0],
+                        [ENEMY, 900, 210, 900, 1000, 210, 210,2, 0],
+                        [ENEMY, 1658, 165, 1658,1658,100, 100, 0,0],
                         [ENEMY, 3598, 478, 3500,3798, 478,478,2 ,0],
-                        [ENEMY, 4700, 80, 4700, 5000, 80, 80, 2, 0]]
+                        [ENEMY, 4700, 60, 4650, 4850, 80, 80, 2, 0],
+                        [ENEMY, 5350, 40,5300, 5400, 65,65, 1.5, 0],
+                        [ENEMY, 7850, 40, 7800, 7900, 80, 80, 2, 0],
+                        [ENEMY, 10400,100,10350,10550,100,100,2, 0],
+                        [ENEMY, 13000,300,12000,13150,300,300,2, 0]]
               
         
         

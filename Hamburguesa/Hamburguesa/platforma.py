@@ -14,7 +14,7 @@ MAYONESA              = (3, 3, 230, 75)
 ENEMY                 = (625, 0, 100, 100)
 TACHO                 = (0, 75, 1640, 74)
 LIMITE                = (0, 120, 50, 400)
-VERSION_LARGA         = (230, 0, 315, 60)
+VERSION_LARGA         = (230, 15, 315, 60)
 SACHET                = (560, 0, 60, 70)
 
 class Plataforma(pygame.sprite.Sprite):
