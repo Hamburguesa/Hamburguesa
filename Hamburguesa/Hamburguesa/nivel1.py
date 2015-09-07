@@ -1,7 +1,7 @@
 import pygame
 import constantes
 from nivel import Level
-from platforma import LIMITE, MAYONESA, ENEMY, SACHET, VERSION_LARGA, Plataforma, TACHO, PlataformaConMovimiento
+from platforma import LIMITE, MAYONESA, ENEMY, ENEMY_F, SACHET, VERSION_LARGA, Plataforma, TACHO, PlataformaConMovimiento
 
 class Level_01(Level):
     ''' Clase que define el primer nivel.
@@ -50,7 +50,7 @@ class Level_01(Level):
                   [MAYONESA, 16600, 140],
                   [MAYONESA, 17050, 170],
                   [LIMITE, 17478, 250],
-                  [MAYONESA, 17850, 420],
+                  [MAYONESA, 18050, 420],
                   [VERSION_LARGA, 19550,170],
                   [MAYONESA, 20150, 170],
                   [MAYONESA, 20550, 380],
@@ -118,15 +118,22 @@ class Level_01(Level):
             self.lista_puntos.add(bloque)
             
         #Lista de enemigos (solo del principio del nivel dado que no eran necesarios)  
-        nivel_enemigos=[[ENEMY, 500, 300, 450, 650, 315, 320, 2, 0],
-                        [ENEMY, 900, 210, 900, 1000, 210, 210,2, 0],
-                        [ENEMY, 1658, 165, 1658,1658,100, 100, 0,0],
-                        [ENEMY, 3598, 478, 3500,3798, 478,478,2 ,0],
-                        [ENEMY, 4700, 60, 4650, 4850, 80, 80, 2, 0],
-                        [ENEMY, 5350, 40,5300, 5400, 65,65, 1.5, 0],
-                        [ENEMY, 7850, 40, 7800, 7900, 80, 80, 2, 0],
-                        [ENEMY, 10400,100,10350,10550,100,100,2, 0],
-                        [ENEMY, 13000,300,12000,13150,300,300,2, 0]]
+        nivel_enemigos=[[ENEMY, 500, 300, 450, 650, 315, 320, 1.5,0],
+                        [ENEMY, 900, 210, 900, 1000, 210, 210,1.5,0],
+                        [ENEMY_F,1658,165, 1658,1658,100, 100, 0, 0],
+                        [ENEMY, 3598, 478, 3500,3798,478,478, 1.5,0],
+                        [ENEMY, 4700, 60, 4650, 4850, 80, 80, 1.5,0],
+                        [ENEMY, 5350, 40, 5300, 5400, 65,65, 1.5, 0],
+                        [ENEMY, 7850, 40,7800, 7900, 80, 80, 1.5, 0],
+                        [ENEMY, 10400,100,10350,10550,100,100,1.5,0],
+                        [ENEMY, 12500,300,12500,12680,300,300,1.5,0],
+                        [ENEMY, 14000,485,13500,14100,450,450,2.5,0],
+                        [ENEMY_F,15500,300,15400,15700, 300,300,2,0],
+                        [ENEMY_F, 16900,30,16900,16900,-100,330,0,2],
+                        [ENEMY_F, 18500,60,18500,18500,-60,160,0, 2],
+                        [ENEMY, 19550,100,19530,19750,100,100,1.5,0],
+                        [ENEMY, 21500, 450,21200,21800,450, 450,2,0],
+                        [ENEMY_F,23000,200,23000,23000,-100,550, 0,2]]
               
         
         

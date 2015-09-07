@@ -16,6 +16,7 @@ TACHO                 = (0, 75, 1640, 74)
 LIMITE                = (0, 120, 50, 400)
 VERSION_LARGA         = (230, 15, 315, 60)
 SACHET                = (560, 0, 60, 70)
+ENEMY_F               = (625, 0, 100, 100)
 
 class Plataforma(pygame.sprite.Sprite):
     """ Clase que define las caracteristicas de la plataforma del juego. """
