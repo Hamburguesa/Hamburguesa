@@ -117,6 +117,7 @@ class Player(pygame.sprite.Sprite):
             elif self.mover_y < 0:
                 self.rect.top = block.rect.bottom
                 self.sonido2.play()
+                self.vidas -=1
             self.mover_y = 0
 
             if isinstance(block, PlataformaConMovimiento):
@@ -133,6 +134,11 @@ class Player(pygame.sprite.Sprite):
             un_enemigo.kill()
             self.vidas -=1
             
+        lista_de_vidas = pygame.sprite.spritecollide(self, self.nivel.lista_vidas, False)
+        for una_vida in lista_de_vidas:
+            una_vida.kill()
+            self.vidas+=1
+            
         #Posicion del jugador en el nivel
         
         print "Pos en Y", self.rect.y
@@ -146,7 +152,7 @@ class Player(pygame.sprite.Sprite):
         if self.mover_y == 0:
             self.mover_y = 1
         else:
-            self.mover_y += .15
+            self.mover_y += .25
 
         # Verificamos si estamos en el suelo.
         if self.rect.y >= self.nivel.limit_nivel_suelo - self.rect.height and self.mover_y >= 0:
@@ -172,7 +178,7 @@ class Player(pygame.sprite.Sprite):
     def avanzar(self):
         """ Se llama cuando movemos hacia la der. """
         
-        self.mover_x = 100
+        self.mover_x = 10
         self.direccion = "R"
 
     def parar(self):

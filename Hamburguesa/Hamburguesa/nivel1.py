@@ -1,7 +1,8 @@
 import pygame
 import constantes
 from nivel import Level
-from platforma import LIMITE, MAYONESA, ENEMY, ENEMY_F, SACHET, VERSION_LARGA, Plataforma, TACHO, PlataformaConMovimiento
+from platforma import LIMITE, MAYONESA, ENEMY, SACHET, SACHET2, VERSION_LARGA, Plataforma, PlataformaConMovimiento
+from platforma2 import ENEMY_F
 
 class Level_01(Level):
     ''' Clase que define el primer nivel.
@@ -81,7 +82,7 @@ class Level_01(Level):
                                 [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
                                 [MAYONESA, 10900, 350,10600,10600,150, 450, 0, 2],
                                 [MAYONESA, 16250, 170,16250,16250,150, 450, 0, 2],
-                                [VERSION_LARGA, 18600, 280,18100,19050,280, 280, 2, 0]]
+                                [VERSION_LARGA, 18600, 280,18300,19050,280, 280, 2, 0]]
          
         for platforma in nivel_movimiento:
             bloque = PlataformaConMovimiento(platforma[0])
@@ -98,17 +99,21 @@ class Level_01(Level):
             self.lista_plataformas.add(bloque)
             
         nivel_puntos=[[SACHET, 500, 200],
+                      [SACHET, 1500, 160],
                       [SACHET, 3000, 28],
+                      [SACHET, 4546, 32],
                       [SACHET, 7800, 9],
+                      [SACHET, 8800, 37],
                       [SACHET, 9800, 11],
                       [SACHET, 12550, 220],
                       [SACHET, 15000, 300],
-                      [SACHET, 17750, 100],
-                      [SACHET, 19550, 100],
-                      [SACHET, 20050, 103],
+                      [SACHET, 17050, 100],
+                      [SACHET, 18550, 120],
+                      [SACHET, 21050, 200],
                       [SACHET, 22000, 500],
                       [SACHET, 23218, 90],
-                      [SACHET, 24218, 160]]
+                      [SACHET, 24218, 160],
+                      [SACHET, 24718, 120]]
         
         for plataforma in nivel_puntos:
             bloque = Plataforma(plataforma[0])
@@ -152,6 +157,16 @@ class Level_01(Level):
             bloque.jugador = self.jugador
             bloque.nivel = self
             self.lista_enemigos.add(bloque)
+            
+        nivel_vidas=[[SACHET2, 10001,-5],
+                     [SACHET2, 20002,50]]
+        
+        for plataforma in nivel_vidas:
+            bloque = Plataforma(plataforma[0])
+            bloque.rect.x = plataforma[1]
+            bloque.rect.y = plataforma[2]
+            bloque.jugador = self.jugador
+            self.lista_vidas.add(bloque)
         
        
         # Se agrega una plataforma en movimiento.

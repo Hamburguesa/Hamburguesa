@@ -10,15 +10,9 @@ from funciones_spritesheet import SpriteSheet
 
 
 
-MAYONESA              = (3, 10, 230, 75)
-ENEMY                 = (625, 0, 100, 100)
-TACHO                 = (0, 75, 1640, 74)
-LIMITE                = (0, 120, 50, 400)
-VERSION_LARGA         = (230, 15, 315, 60)
-SACHET                = (560, 0, 60, 70)
-SACHET2               = (730, 0, 230, 75)
+ENEMY_F               = (625, 0, 100, 100)
 
-class Plataforma(pygame.sprite.Sprite):
+class Plataforma2(pygame.sprite.Sprite):
     """ Clase que define las caracteristicas de la plataforma del juego. """
 
     def __init__(self, sprite_sheet_data):
@@ -35,7 +29,7 @@ class Plataforma(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
 
 
-class PlataformaConMovimiento(Plataforma):
+class PlataformaConMovimiento(Plataforma2):
     """ Clase que define las caracteristicas de una plataforma con movimiento """
     mover_x = 0
     mover_y = 0

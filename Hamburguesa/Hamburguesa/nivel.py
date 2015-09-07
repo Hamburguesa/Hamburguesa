@@ -48,6 +48,7 @@ class Level():
         self.lista_plataformas.draw(pantalla)
         self.lista_enemigos.draw(pantalla)
         self.lista_puntos.draw(pantalla)
+        self.lista_vidas.draw(pantalla)
 
     def avance_nivel(self, avance_x):
         """ Cuando el usuario se mueve de izquierda/derecha se debe mover el nivel """
@@ -62,3 +63,6 @@ class Level():
             
         for comidas in self.lista_puntos:
             comidas.rect.x+=avance_x
+            
+        for vidas in self.lista_vidas:
+            vidas.rect.x+=avance_x
