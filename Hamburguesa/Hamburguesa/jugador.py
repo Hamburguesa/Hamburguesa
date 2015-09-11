@@ -23,7 +23,7 @@ class Player(pygame.sprite.Sprite):
     # Lista de sprite con las cosas que nos podemos chocar.
     nivel = None
     
-    vidas = 5
+    vidas = 5.5
     puntos = 0
     sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
     sonido2 = pygame.mixer.Sound("sonidos/CuchilloPlat.wav")
