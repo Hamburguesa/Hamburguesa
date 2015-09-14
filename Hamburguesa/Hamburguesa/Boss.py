@@ -5,14 +5,11 @@ import constantes
 from platforma import PlataformaConMovimiento
 from funciones_spritesheet import SpriteSheet
 
-pygame.mixer.init()
-class Player(pygame.sprite.Sprite):
-    """Clase utilizada para desarrollar los jugadores del juego. """
-    
+pygame.init()
+class BOSS(pygame.sprite.Sprite):
     # -- Atributos
     mover_x = 0
-    mover_y = 0
-
+    
     # Estas listas definen todas las imagenes de nuestro jugador.
     jugador_frame_izq = []
     jugador_frame_der = []
@@ -23,11 +20,6 @@ class Player(pygame.sprite.Sprite):
     # Lista de sprite con las cosas que nos podemos chocar.
     nivel = None
     
-    vidas = 5
-    puntos = 0
-    sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
-    sonido2 = pygame.mixer.Sound("sonidos/CuchilloPlat.wav")
-    # -- Metodos
     def __init__(self,ruta):
         """ __Funcion constructor__ 
             Aca en donde se debe cargar el sprite sheet del jugador.
@@ -108,20 +100,6 @@ class Player(pygame.sprite.Sprite):
 
         self.rect.y += self.mover_y
 
-        # Verficamos si colisionamos con algo si saltamos
-        lista_de_bloques_colisionados = pygame.sprite.spritecollide(self, self.nivel.lista_plataformas, False)
-        for block in lista_de_bloques_colisionados:
-
-            if self.mover_y > 0:
-                self.rect.bottom = block.rect.top
-            elif self.mover_y < 0:
-                self.rect.top = block.rect.bottom
-                self.sonido2.play()
-                self.vidas -=1
-            self.mover_y = 0
-
-            if isinstance(block, PlataformaConMovimiento):
-                self.rect.x += block.mover_x
         
         # Verificamos si coalisionamos con un punto
         lista_de_puntos = pygame.sprite.spritecollide(self, self.nivel.lista_puntos, False)
@@ -141,36 +119,7 @@ class Player(pygame.sprite.Sprite):
         for una_vida in lista_de_vidas:
             una_vida.kill()
             self.vidas+=1
-            
-        #Posicion del jugador en el nivel
         
-        print "Pos en Y", self.rect.y
-        print "Pos en X", self.rect.x
-        print "Pos: ", self.nivel.posicion_jugador_nivel
-        
-        
-    def calc_grav(self):
-        """ Calcula el efecto de la gravedad. """
-        
-        if self.mover_y == 0:
-            self.mover_y = 1
-        else:
-            self.mover_y += .25
-
-        # Verificamos si estamos en el suelo.
-        if self.rect.y >= self.nivel.limit_nivel_suelo - self.rect.height and self.mover_y >= 0:
-            self.mover_y = 0
-            self.rect.y = self.nivel.limit_nivel_suelo - self.rect.height
-
-    def saltar(self):
-        """ Metodo que se llamam si saltamos. """
-
-        self.rect.y += 5
-        platform_hit_list = pygame.sprite.spritecollide(self, self.nivel.lista_plataformas, False)
-        self.rect.y -= 5
-
-        if len(platform_hit_list) > 0 or self.rect.bottom >= self.nivel.limit_nivel_suelo:
-            self.mover_y = -10
 
     def retroceder(self):
         """ Se llama cuando movemos hacia la izq. """
@@ -187,4 +136,5 @@ class Player(pygame.sprite.Sprite):
     def parar(self):
         """ Se llama cuando soltamos la tecla. """
         self.mover_x = 0
+        
         
