@@ -7,13 +7,16 @@ from nivel1 import Level_01
 from nivel2 import Level_02 
 
 from jugador import Player
-
+from time import time
 
 def Play(pantalla):
+    tiempo_comienzo = time() +100
+    
     # Creamos al jugador con la imagen p1_walk.png
     jugador_principal = Player("imagenes/hamburguesa.png")
     letraParaPuntos = pygame.font.Font(None, 24)
     letraParaVidas = pygame.font.Font(None, 24)
+    letraTiempo = pygame.font.Font(None, 24)
 # Creamos todos los niveles del juego
     lista_niveles = []
     lista_niveles.append(Level_01(jugador_principal))
@@ -76,14 +79,20 @@ def Play(pantalla):
         # TODO EL CODIGO PARA DIBUJAR DEBE IR DEBAJO DE ESTE COMENTARIO.
         nivel_actual.draw(pantalla)
         lista_sprites_activos.draw(pantalla)
+        
         textoPuntos = letraParaPuntos.render("Puntos: " + str(jugador_principal.puntos), 1, constantes.NEGRO)
         pantalla.blit(textoPuntos, (10, 10))
+        
         textoVidas = letraParaVidas.render("Vidas: " + str(jugador_principal.vidas), 1, constantes.NEGRO)
         pantalla.blit(textoVidas, (900, 10))
+        
+        tiempo_transcurrido = int(tiempo_comienzo - time())
+        textoTiempo = letraTiempo.render("Tiempo: " + str(tiempo_transcurrido), 1, constantes.NEGRO)
+        pantalla.blit(textoTiempo, (300, 10))
         # TODO EL CODIGO PARA DIBUJAR DEBE IR POR ARRIBA DE ESTE COMENTARIO.
         clock.tick(60)
         pygame.display.flip()
-        if jugador_principal.vidas == 0:
+        if jugador_principal.vidas == 0 or tiempo_transcurrido == 0:
             pantalla.fill(constantes.NEGRO)
             texto_gameover1 = letraParaMarcador1.render("GAME OVER", 1, constantes.ROJO)
             texto_gameover2 = letraParaMarcador2.render("Presione cualquier tecla para volver a jugar", 1, constantes.ROJO)
