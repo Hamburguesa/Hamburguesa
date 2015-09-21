@@ -2,7 +2,7 @@ import pygame
 
 import constantes
 from menu import cMenu, EVENT_CHANGE_STATE
-
+from Boss import BOSS
 from nivel1 import Level_01
 from nivel2 import Level_02 
 
@@ -17,20 +17,32 @@ def Play(pantalla):
     letraParaPuntos = pygame.font.Font(None, 24)
     letraParaVidas = pygame.font.Font(None, 24)
     letraTiempo = pygame.font.Font(None, 24)
+    Jefe_final = BOSS("imagenes/chef.png")
+    
 # Creamos todos los niveles del juego
     lista_niveles = []
     lista_niveles.append(Level_01(jugador_principal))
     lista_niveles.append(Level_02(jugador_principal))
+    
+    lista_niveles.append(Level_02(Jefe_final))
+    
 # Seteamos cual es el primer nivel.
     numero_del_nivel_actual = 0
     nivel_actual = lista_niveles[numero_del_nivel_actual]
     lista_sprites_activos = pygame.sprite.Group()
     jugador_principal.nivel = nivel_actual
-    jugador_principal.rect.x = 240
+    jugador_principal.rect.x = 700
     jugador_principal.rect.y = constantes.LARGO_PANTALLA - jugador_principal.rect.height - 120
     lista_sprites_activos.add(jugador_principal)
     letraParaMarcador1 = pygame.font.Font(None, 56)
     letraParaMarcador2 = pygame.font.Font(None, 36)
+    
+    Jefe_final.nivel = lista_niveles[0]
+    Jefe_final.rect.x = 0
+    Jefe_final.rect.y = constantes.LARGO_PANTALLA - Jefe_final.rect.height 
+    Jefe_final.jugador = jugador_principal
+    lista_sprites_activos.add(Jefe_final)
+    
 #Variable booleano que nos avisa cuando el usuario aprieta el botOn salir.
     salir = False
     clock = pygame.time.Clock()
@@ -53,6 +65,8 @@ def Play(pantalla):
                     jugador_principal.parar()
                 if evento.key == pygame.K_RIGHT and jugador_principal.mover_x > 0:
                     jugador_principal.parar()
+            
+        Jefe_final.avanzar()
         
         # Actualiza todo el jugador
         lista_sprites_activos.update()
