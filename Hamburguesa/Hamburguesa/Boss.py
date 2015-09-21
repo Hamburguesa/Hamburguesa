@@ -74,9 +74,6 @@ class BOSS(pygame.sprite.Sprite):
 
     def update(self):
         """ Metodo que actualiza la posicion del jugador. """
-        
-        # Gravedad
-        self.calc_grav()
 
         # Movimientos Izquierda/Derecha
         self.rect.x += self.mover_x
@@ -92,11 +89,9 @@ class BOSS(pygame.sprite.Sprite):
         lista_de_bloques_colisionados = pygame.sprite.spritecollide(self, self.nivel.lista_plataformas, False)
         for block in lista_de_bloques_colisionados:
             if self.mover_x > 0:
-                self.rect.right = block.rect.left
-                self.sonido2.play()
+                block.kill
             elif self.mover_x < 0:
-                self.rect.left = block.rect.right
-                self.sonido2.play()
+                block.kill()
 
         self.rect.y += self.mover_y
 
@@ -105,27 +100,18 @@ class BOSS(pygame.sprite.Sprite):
         lista_de_puntos = pygame.sprite.spritecollide(self, self.nivel.lista_puntos, False)
         for un_punto in lista_de_puntos:
             un_punto.kill()
-            self.puntos +=1
-            self.sonido1.play()
             
         # Verificamos si coalisionamos con un enemigo
         lista_de_enemigos = pygame.sprite.spritecollide(self, self.nivel.lista_enemigos, False)
         for un_enemigo in lista_de_enemigos:
             un_enemigo.kill()
-            self.vidas -=1
         
         # Verificamos si coalisionamos con una vida
         lista_de_vidas = pygame.sprite.spritecollide(self, self.nivel.lista_vidas, False)
         for una_vida in lista_de_vidas:
             una_vida.kill()
-            self.vidas+=1
+            
         
-
-    def retroceder(self):
-        """ Se llama cuando movemos hacia la izq. """
-        
-        self.mover_x = -10
-        self.direccion = "L"
 
     def avanzar(self):
         """ Se llama cuando movemos hacia la der. """
@@ -133,8 +119,5 @@ class BOSS(pygame.sprite.Sprite):
         self.mover_x = 10
         self.direccion = "R"
 
-    def parar(self):
-        """ Se llama cuando soltamos la tecla. """
-        self.mover_x = 0
         
         
