@@ -24,7 +24,7 @@ def Play(pantalla):
     lista_niveles.append(Level_01(jugador_principal))
     lista_niveles.append(Level_02(jugador_principal))
     
-    lista_niveles.append(Level_02(Jefe_final))
+    lista_niveles.append(Level_01(Jefe_final))
     
 # Seteamos cual es el primer nivel.
     numero_del_nivel_actual = 0
@@ -38,7 +38,7 @@ def Play(pantalla):
     letraParaMarcador2 = pygame.font.Font(None, 36)
     
     Jefe_final.nivel = lista_niveles[0]
-    Jefe_final.rect.x = 0
+    Jefe_final.rect.x = -3000
     Jefe_final.rect.y = constantes.LARGO_PANTALLA - Jefe_final.rect.height 
     Jefe_final.jugador = jugador_principal
     lista_sprites_activos.add(Jefe_final)

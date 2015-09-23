@@ -60,11 +60,7 @@ class BOSS(pygame.sprite.Sprite):
         # Verficiamos si colisionamos con algo mientras avanzamos
         lista_de_bloques_colisionados = pygame.sprite.spritecollide(self, self.nivel.lista_plataformas, False)
         for block in lista_de_bloques_colisionados:
-            if self.mover_x > 0:
-                block.kill()
-            elif self.mover_x < 0:
-                block.kill()
-
+            block.kill()
         
         # Verificamos si coalisionamos con un punto
         lista_de_puntos = pygame.sprite.spritecollide(self, self.nivel.lista_puntos, False)
