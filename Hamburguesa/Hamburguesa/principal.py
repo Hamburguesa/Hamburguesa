@@ -2,6 +2,7 @@ import pygame
 
 import constantes
 from menu import cMenu, EVENT_CHANGE_STATE
+import menu
 from Boss import BOSS
 from nivel1 import Level_01
 from nivel2 import Level_02 
@@ -9,7 +10,7 @@ from nivel2 import Level_02
 from jugador import Player
 from time import time
 
-def Play(pantalla):
+def Play(pantalla,jugador):
     tiempo_comienzo = time() +100
     
     # Creamos al jugador con la imagen p1_walk.png
@@ -114,7 +115,8 @@ def Play(pantalla):
             pantalla.blit(texto_gameover2, [200, 310])
             pygame.display.flip()
             pygame.event.wait()
-            salir = True
+            main()
+            
     #Salgo del juego
     return True
     
@@ -131,12 +133,20 @@ def main():
     sonido3 = pygame.mixer.Sound("sonidos/FondoSound.wav")
     sonido3.play(-1)
     pygame.display.set_caption("Comida rapida")
+    
+    menu_principal = cMenu(50,50,20,5,"vertical",4,pantalla,[("Jugar",1,None),("Historia",2,None),("Creditos",3,None),("Salir",4,None)])
+    menuJugador = cMenu(30, 350, 100, 5, "horizontal", 3, pantalla, [("Hamburguesa",5, None),("Papa Frita",6,None),("Volver",0,None)])
+    historia = cMenu (220,150, 400, 400, 'vertical',1,pantalla,[("Historia",7,None)])
+    creditos = cMenu (100,125, 630, 348, 'vertical',1,pantalla,[("Creditos",8,None)])
+    
 
-    menu_principal = cMenu(50,50,20,10,"vertical",3,pantalla, [("Jugar", 1, None),("Creditos", 2, None),("Salir", 3, None)])
     estado = 0
     estado_previo = 1
     opcion = []
     salir = False
+    logo = pygame.image.load("imagenes/logo.png").convert()
+    logo.set_colorkey(constantes.BLANCO)
+    
     
     while (not salir):
         e = pygame.event.wait()
@@ -145,16 +155,51 @@ def main():
             pygame.event.post(pygame.event.Event(EVENT_CHANGE_STATE, key = 0))
             estado_previo = estado
         
-        if e.type == pygame.KEYDOWN or e.type == EVENT_CHANGE_STATE:
+        if e.type == pygame.KEYDOWN or e.type == menu.EVENT_CHANGE_STATE:
             if estado == 0:
-                opcion, estado = menu_principal.update(e, estado)
-            if estado == 1:
-                salir = Play(pantalla)
-            if estado == 2:
-                pantalla.fill(constantes.ROJO)
-                opcion, estado = menu_principal.update(e, estado)
-            if estado == 3:
-                salir = True
+                opcion, estado = menu_principal.update(e,estado)
+                pantalla.blit(logo,(250,20)) 
+                pygame.display.flip()
+            
+            elif estado == 1:
+                pantalla.fill(constantes.NEGRO)
+                opcion, estado = menuJugador.update(e, estado)
+                pygame.display.flip()
+
+            elif estado == 2:
+                pantalla.fill(constantes.NEGRO)
+                opcion, estado = historia.update(e, estado)
+                pygame.display.flip()
+
+            elif estado == 3:
+                pantalla.fill(constantes.NEGRO)
+                opcion, estado = creditos.update(e, estado)
+                pygame.display.flip()
+            
+            elif estado == 4:
+                salir=True
+            
+            elif estado == 5:
+                jugador = 1
+                Play(pantalla, jugador)
+            
+            elif estado == 6:
+                jugador = 2
+                Play(pantalla, jugador)
+            
+            elif estado == 7:
+                pantalla.fill(constantes.NEGRO)
+                estado = 0
+                pantalla.blit(logo,(250,20))
+                pygame.display.flip()
+            
+            elif estado == 8:
+                pantalla.fill(constantes.NEGRO)
+                estado = 0
+                pantalla.blit(logo,(250,20))
+                pygame.display.flip()
+
+            
         if e.type == pygame.QUIT:
             salir = True
             
