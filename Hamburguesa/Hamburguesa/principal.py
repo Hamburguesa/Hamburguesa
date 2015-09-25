@@ -10,6 +10,7 @@ from nivel2 import Level_02
 from jugador import Player
 from time import time
 
+
 def Play(pantalla,jugador):
     tiempo_comienzo = time() +100
     
@@ -134,11 +135,13 @@ def main():
     sonido3.play(-1)
     pygame.display.set_caption("Comida rapida")
     
-    menu_principal = cMenu(50,50,20,5,"vertical",4,pantalla,[("Jugar",1,None),("Historia",2,None),("Creditos",3,None),("Salir",4,None)])
+    menu_principal = cMenu(50,50,50,5,"vertical",4,pantalla,[("Jugar",1,None),("Historia",2,None),("Creditos",3,None),("Salir",4,None)])
     menuJugador = cMenu(30, 350, 100, 5, "horizontal", 3, pantalla, [("Hamburguesa",5, None),("Papa Frita",6,None),("Volver",0,None)])
-    historia = cMenu (220,150, 400, 400, 'vertical',1,pantalla,[("Historia",7,None)])
-    creditos = cMenu (100,125, 630, 348, 'vertical',1,pantalla,[("Creditos",8,None)])
+    historia = cMenu (800,500, 400, 400, 'horizontal',1,pantalla,[("Volver", 0, None)])
+    creditos = cMenu (800,500, 630, 348, 'horizontal',1,pantalla,[("Volver", 0, None)])
     
+    menuJugador.set_center(True, True)
+    menuJugador.set_alignment("center", "center")
 
     estado = 0
     estado_previo = 1
@@ -187,18 +190,6 @@ def main():
                 jugador = 2
                 Play(pantalla, jugador)
             
-            elif estado == 7:
-                pantalla.fill(constantes.NEGRO)
-                estado = 0
-                pantalla.blit(logo,(250,20))
-                pygame.display.flip()
-            
-            elif estado == 8:
-                pantalla.fill(constantes.NEGRO)
-                estado = 0
-                pantalla.blit(logo,(250,20))
-                pygame.display.flip()
-
             
         if e.type == pygame.QUIT:
             salir = True
