@@ -15,7 +15,7 @@ def Play(pantalla,jugador):
     tiempo_comienzo = time() +100
     
     # Creamos al jugador con la imagen p1_walk.png
-    jugador_principal = Player("imagenes/hamburguesa.png")
+    jugador_principal = Player("imagenes/movimientos hamburger.png")
     letraParaPuntos = pygame.font.Font(None, 24)
     letraParaVidas = pygame.font.Font(None, 24)
     letraTiempo = pygame.font.Font(None, 24)
@@ -135,7 +135,7 @@ def main():
     sonido3.play(-1)
     pygame.display.set_caption("Comida rapida")
     
-    menu_principal = cMenu(50,50,50,5,"vertical",4,pantalla,[("Jugar",1,None),("Historia",2,None),("Creditos",3,None),("Salir",4,None)])
+    menu_principal = cMenu(10,50,50,39,"vertical",4,pantalla,[("Jugar",1,None),("Historia",2,None),("Creditos",3,None),("Salir",4,None)])
     menuJugador = cMenu(30, 350, 100, 5, "horizontal", 3, pantalla, [("Hamburguesa",5, None),("Papa Frita",6,None),("Volver",0,None)])
     historia = cMenu (800,500, 400, 400, 'horizontal',1,pantalla,[("Volver", 0, None)])
     creditos = cMenu (800,500, 630, 348, 'horizontal',1,pantalla,[("Volver", 0, None)])
