@@ -37,7 +37,7 @@ class BOSS(pygame.sprite.Sprite):
         self.jugador_frame_der.append(imagen)
         imagen = sprite_sheet.obtener_imagen(873, 0, 280, 600,constantes.BLANCO)
         self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(1185, 0, 285, 600,constantes.BLANCO)
+        imagen = sprite_sheet.obtener_imagen(1185, 0, 276, 600,constantes.BLANCO)
         self.jugador_frame_der.append(imagen)      
 
         # Seteamos con que sprite comenzar

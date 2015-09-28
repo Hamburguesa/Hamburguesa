@@ -28,62 +28,114 @@ class Player(pygame.sprite.Sprite):
     sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
     sonido2 = pygame.mixer.Sound("sonidos/CuchilloPlat.wav")
     # -- Metodos
-    def __init__(self,ruta):
+    def __init__(self, jugador=1):
         """ __Funcion constructor__ 
             Aca en donde se debe cargar el sprite sheet del jugador.
             Se debe cargar los sprite con movimiento hacia la izquierda y hacia la derecha.
         """
 
         pygame.sprite.Sprite.__init__(self)
+        
+        if jugador == 1:
+            sprite_sheet = SpriteSheet("imagenes/movimientos hamburger.png")
+            
+            # Carga de todos los sprite de la imagen hacia la derecha.
+            imagen = sprite_sheet.obtener_imagen(0, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(108, 0, 101, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(213, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(318, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(423, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(528, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(633, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(738, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            
+            
+            
+    
+            # # Carga de todos los sprite de la imagen hacia la derecha y la rotamos.
+            imagen = sprite_sheet.obtener_imagen(0, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(105, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(210, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(315, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(420, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(525, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(630, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(735, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
 
-        sprite_sheet = SpriteSheet(ruta)
-        
-        # Carga de todos los sprite de la imagen hacia la derecha.
-        imagen = sprite_sheet.obtener_imagen(0, 0, 104, 118,constantes.BLANCO)
-        self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(108, 0, 101, 118,constantes.BLANCO)
-        self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(213, 0, 104, 118,constantes.BLANCO)
-        self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(318, 0, 104, 118,constantes.BLANCO)
-        self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(423, 0, 104, 118,constantes.BLANCO)
-        self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(528, 0, 104, 118,constantes.BLANCO)
-        self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(633, 0, 104, 118,constantes.BLANCO)
-        self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(738, 0, 104, 118,constantes.BLANCO)
-        self.jugador_frame_der.append(imagen)
-        
-        
-        
+        if jugador == 2:
+            sprite_sheet = SpriteSheet("imagenes/movimientos hamburger.png")
+            
+            # Carga de todos los sprite de la imagen hacia la derecha.
+            imagen = sprite_sheet.obtener_imagen(0, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(108, 0, 101, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(213, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(318, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(423, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(528, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(633, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(738, 0, 104, 118, constantes.BLANCO)
+            self.jugador_frame_der.append(imagen)
+            
+            
+            
+    
+            # # Carga de todos los sprite de la imagen hacia la derecha y la rotamos.
+            imagen = sprite_sheet.obtener_imagen(0, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(105, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(210, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(315, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(420, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(525, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(630, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
+            imagen = sprite_sheet.obtener_imagen(735, 0, 100, 115, constantes.BLANCO)
+            imagen = pygame.transform.flip(imagen, True, False)
+            self.jugador_frame_izq.append(imagen)
 
-        # # Carga de todos los sprite de la imagen hacia la derecha y la rotamos.
-        imagen = sprite_sheet.obtener_imagen(0, 0, 100, 115,constantes.BLANCO)
-        imagen = pygame.transform.flip(imagen, True, False)
-        self.jugador_frame_izq.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(105, 0, 100, 115,constantes.BLANCO)
-        imagen = pygame.transform.flip(imagen, True, False)
-        self.jugador_frame_izq.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(210, 0, 100, 115,constantes.BLANCO)
-        imagen = pygame.transform.flip(imagen, True, False)
-        self.jugador_frame_izq.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(315, 0, 100, 115,constantes.BLANCO)
-        imagen = pygame.transform.flip(imagen, True, False)
-        self.jugador_frame_izq.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(420, 0, 100, 115,constantes.BLANCO)
-        imagen = pygame.transform.flip(imagen, True, False)
-        self.jugador_frame_izq.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(525, 0, 100, 115,constantes.BLANCO)
-        imagen = pygame.transform.flip(imagen, True, False)
-        self.jugador_frame_izq.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(630, 0, 100, 115,constantes.BLANCO)
-        imagen = pygame.transform.flip(imagen, True, False)
-        self.jugador_frame_izq.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(735, 0, 100, 115,constantes.BLANCO)
-        imagen = pygame.transform.flip(imagen, True, False)
-        self.jugador_frame_izq.append(imagen)
 
         # Seteamos con que sprite comenzar
         self.image = self.jugador_frame_der[0]
@@ -129,7 +181,7 @@ class Player(pygame.sprite.Sprite):
             elif self.mover_y < 0:
                 self.rect.top = block.rect.bottom
                 self.sonido2.play()
-                self.vidas -=1
+                self.vidas -= 1
             self.mover_y = 0
 
             if isinstance(block, PlataformaConMovimiento):
@@ -139,22 +191,22 @@ class Player(pygame.sprite.Sprite):
         lista_de_puntos = pygame.sprite.spritecollide(self, self.nivel.lista_puntos, False)
         for un_punto in lista_de_puntos:
             un_punto.kill()
-            self.puntos +=1
+            self.puntos += 1
             self.sonido1.play()
             
         # Verificamos si coalisionamos con un enemigo
         lista_de_enemigos = pygame.sprite.spritecollide(self, self.nivel.lista_enemigos, False)
         for un_enemigo in lista_de_enemigos:
             un_enemigo.kill()
-            self.vidas -=1
+            self.vidas -= 1
         
         # Verificamos si coalisionamos con una vida
         lista_de_vidas = pygame.sprite.spritecollide(self, self.nivel.lista_vidas, False)
         for una_vida in lista_de_vidas:
             una_vida.kill()
-            self.vidas+=1
+            self.vidas += 1
             
-        #Posicion del jugador en el nivel
+        # Posicion del jugador en el nivel
         
         print "Pos en Y", self.rect.y
         print "Pos en X", self.rect.x
@@ -195,6 +247,9 @@ class Player(pygame.sprite.Sprite):
         
         self.mover_x = 10
         self.direccion = "R"
+
+    def avanzarr(self):
+        self.mover_x = 100
 
     def parar(self):
         """ Se llama cuando soltamos la tecla. """

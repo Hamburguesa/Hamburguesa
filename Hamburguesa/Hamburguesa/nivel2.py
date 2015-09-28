@@ -18,7 +18,7 @@ class Level_02(Level):
         #Cargamos la imagen de fondo.
         self.fondo = pygame.image.load("imagenes/background_02.png").convert()
         self.fondo.set_colorkey(constantes.BLANCO)
-        self.limite_nivel = -1000
+        self.limite_nivel = -25000
         self.limit_nivel_suelo=500
 
         # Lista con los bloques de plataformas, indicando la ubicacion x,y y el tipo 
