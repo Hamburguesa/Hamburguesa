@@ -23,7 +23,7 @@ class Player(pygame.sprite.Sprite):
     # Lista de sprite con las cosas que nos podemos chocar.
     nivel = None
     
-    vidas = 5
+    vidas = 10
     puntos = 0
     sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
     sonido2 = pygame.mixer.Sound("sonidos/CuchilloPlat.wav")
@@ -193,7 +193,7 @@ class Player(pygame.sprite.Sprite):
     def avanzar(self):
         """ Se llama cuando movemos hacia la der. """
         
-        self.mover_x = 1
+        self.mover_x = 10
         self.direccion = "R"
 
     def parar(self):

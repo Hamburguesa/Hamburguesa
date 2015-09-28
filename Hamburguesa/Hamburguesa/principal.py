@@ -135,21 +135,34 @@ def main():
     sonido3.play(-1)
     pygame.display.set_caption("Comida rapida")
     
-    menu_principal = cMenu(10,50,50,39,"vertical",4,pantalla,[("Jugar",1,None),("Historia",2,None),("Creditos",3,None),("Salir",4,None)])
+    menu_principal = cMenu(10,50,50,39,"vertical",5,pantalla,[("Jugar",1,None),("Historia",2,None),("Creditos",3,None),("Como jugar", 7, None),("Salir",4,None)])
     menuJugador = cMenu(30, 350, 100, 5, "horizontal", 3, pantalla, [("Hamburguesa",5, None),("Papa Frita",6,None),("Volver",0,None)])
     historia = cMenu (800,500, 400, 400, 'horizontal',1,pantalla,[("Volver", 0, None)])
     creditos = cMenu (800,500, 630, 348, 'horizontal',1,pantalla,[("Volver", 0, None)])
+    How_to_play = cMenu(800, 500, 630, 348, "horizontal",1,pantalla,[("Volver",0, None)])
     
     menuJugador.set_center(True, True)
     menuJugador.set_alignment("center", "center")
-
+    
+    letraParaCreditos = pygame.font.Font(None, 45)
     estado = 0
     estado_previo = 1
     opcion = []
     salir = False
     logo = pygame.image.load("imagenes/logo.png").convert()
     logo.set_colorkey(constantes.BLANCO)
-    
+    textoCreditos1 = letraParaCreditos.render("Utiliza las flechas izquierda y derecha para moverte hacia delante y atras", 1, constantes.BLANCO)
+    textoCreditos2 = letraParaCreditos.render("Utiliza la flecha superior para saltar", 1, constantes.BLANCO)
+    textoCreditos3 = letraParaCreditos.render("Captura los sachets de mayonesa para sumar puntos", 1, constantes.BLANCO)
+    textoCreditos4 = letraParaCreditos.render("Captura los sachets de ketchup para recuperar vidas", 1, constantes.BLANCO)
+    textoCreditos5 = letraParaCreditos.render("Esquiva las ratas para no perder vidas",1,constantes.BLANCO)
+    textoCreditos6 = letraParaCreditos.render("El chef te persigue, no dejes que te atrape ", 1, constantes.BLANCO)
+    CreditosReales1 = letraParaCreditos.render("Historia: Antonela Tapia, Manuel Freire, Fernanda Mayer", 1, constantes.BLANCO)
+    CreditosReales3 = letraParaCreditos.render("Fondo de los niveles: Fernanda Mayer", 1, constantes.BLANCO)
+    CreditosReales4 = letraParaCreditos.render("Personajes: ", 1, constantes.BLANCO)
+    CreditosReales5 = letraParaCreditos.render("Programacion: Manuel Freire", 1, constantes.BLANCO)
+    CreditosReales6 = letraParaCreditos.render("Agradecimientos: Pablo Navas, Rosario Sosa, Mariana Betervide, ", 1, constantes.BLANCO)
+    CreditosReales2 = letraParaCreditos.render("Joel Barros, Cinthia, Mario La Camera, y los Rodrigos Perez", 1, constantes.BLANCO)
     
     while (not salir):
         e = pygame.event.wait()
@@ -160,8 +173,9 @@ def main():
         
         if e.type == pygame.KEYDOWN or e.type == menu.EVENT_CHANGE_STATE:
             if estado == 0:
+                pantalla.fill(constantes.NEGRO)
                 opcion, estado = menu_principal.update(e,estado)
-                pantalla.blit(logo,(250,20)) 
+                pantalla.blit(logo,(300,20)) 
                 pygame.display.flip()
             
             elif estado == 1:
@@ -177,6 +191,12 @@ def main():
             elif estado == 3:
                 pantalla.fill(constantes.NEGRO)
                 opcion, estado = creditos.update(e, estado)
+                pantalla.blit(CreditosReales1,(25,20))
+                pantalla.blit(CreditosReales3,(25,110))
+                pantalla.blit(CreditosReales4,(25,200))
+                pantalla.blit(CreditosReales5,(25,290))
+                pantalla.blit(CreditosReales6,(25,380))
+                pantalla.blit(CreditosReales2,(25,420))
                 pygame.display.flip()
             
             elif estado == 4:
@@ -189,6 +209,17 @@ def main():
             elif estado == 6:
                 jugador = 2
                 Play(pantalla, jugador)
+            
+            elif estado == 7:
+                pantalla.fill(constantes.NEGRO)
+                opcion, estado = How_to_play.update(e, estado)
+                pantalla.blit(textoCreditos1, (25, 10))
+                pantalla.blit(textoCreditos2, (25, 110))
+                pantalla.blit(textoCreditos3, (25, 210))
+                pantalla.blit(textoCreditos4, (25, 310))
+                pantalla.blit(textoCreditos5, (25, 410))
+                pantalla.blit(textoCreditos6, (25, 510))
+                pygame.display.flip()
             
             
         if e.type == pygame.QUIT:
