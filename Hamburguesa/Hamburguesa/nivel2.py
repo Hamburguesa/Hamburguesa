@@ -1,6 +1,6 @@
 import pygame
 import constantes
-import platforma
+from platforma import LIMITE, MAYONESA, ENEMY, SACHET, SACHET2, VERSION_LARGA, Plataforma, PlataformaConMovimiento
 from nivel import Level
 
 #Clase que define el segundo nivel.
@@ -22,23 +22,29 @@ class Level_02(Level):
         self.limit_nivel_suelo=500
 
         # Lista con los bloques de plataformas, indicando la ubicacion x,y y el tipo 
-        nivel = [ [platforma.MAYONESA, 500, 550]]
+        nivel = []
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al jugador.
         for plataforma in nivel:
-            bloque = platforma.Plataforma(plataforma[0])
+            bloque = Plataforma(plataforma[0])
             bloque.rect.x = plataforma[1]
             bloque.rect.y = plataforma[2]
             bloque.jugador = self.jugador
             self.lista_plataformas.add(bloque)
 
-        # Se agrega una plataforma en movimiento.
-        bloque = platforma.PlataformaConMovimiento(platforma.MAYONESA)
-        bloque.rect.x = 1500
-        bloque.rect.y = 300
-        bloque.limite_superior = 100
-        bloque.limite_inferior = 550
-        bloque.mover_y = -1
-        bloque.jugador = self.jugador
-        bloque.nivel = self
-        self.lista_plataformas.add(bloque)
+
+        nivel_movimiento = []
+        
+        for platforma in nivel_movimiento:
+            bloque = PlataformaConMovimiento(platforma[0])
+            bloque.rect.x = platforma[1]
+            bloque.rect.y = platforma[2]
+            bloque.limite_izquierdo = platforma[3]
+            bloque.limite_derecho = platforma[4]
+            bloque.limite_superior = platforma[5]
+            bloque.limite_inferior = platforma[6]
+            bloque.mover_x = platforma[7]
+            bloque.mover_y = platforma[8]
+            bloque.jugador = self.jugador
+            bloque.nivel = self
+            self.lista_plataformas.add(bloque)

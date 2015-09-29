@@ -46,9 +46,9 @@ class Player(pygame.sprite.Sprite):
             self.jugador_frame_der.append(imagen)
             imagen = sprite_sheet.obtener_imagen(213, 0, 104, 118, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(318, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(320, 0, 101, 118, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(423, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(425, 0, 101, 118, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
             imagen = sprite_sheet.obtener_imagen(528, 0, 104, 118, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
@@ -61,28 +61,28 @@ class Player(pygame.sprite.Sprite):
             
     
             # # Carga de todos los sprite de la imagen hacia la derecha y la rotamos.
-            imagen = sprite_sheet.obtener_imagen(0, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(0, 0, 104, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(105, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(108, 0, 101, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(210, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(213, 0, 104, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(315, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(320, 0, 104, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(420, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(425, 0, 104, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(525, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(531, 0, 104, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(630, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(633, 0, 104, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(735, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(738, 0, 104, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
 
@@ -208,9 +208,9 @@ class Player(pygame.sprite.Sprite):
             
         # Posicion del jugador en el nivel
         
-        print "Pos en Y", self.rect.y
-        print "Pos en X", self.rect.x
-        print "Pos: ", self.nivel.posicion_jugador_nivel
+        #print "Pos en Y", self.rect.y
+        #print "Pos en X", self.rect.x
+        #print "Pos: ", self.nivel.posicion_jugador_nivel
         
         
     def calc_grav(self):

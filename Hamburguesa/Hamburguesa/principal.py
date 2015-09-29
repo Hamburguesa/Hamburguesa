@@ -85,12 +85,15 @@ def Play(pantalla, jugador):
         if current_position < nivel_actual.limite_nivel:
             jugador_principal.rect.x = 120
             if numero_del_nivel_actual < len(lista_niveles) - 1:
+                current_position=0
+                pygame.event.wait()
+                Jefe_final.kill()
                 numero_del_nivel_actual += 1
                 nivel_actual = lista_niveles[numero_del_nivel_actual]
                 jugador_principal.nivel = nivel_actual
                 tiempo_transcurrido = int(tiempo_comienzo - time())
                 no_aparece_boss = True
-                Jefe_final.kill()
+                
                 
         # TODO EL CODIGO PARA DIBUJAR DEBE IR DEBAJO DE ESTE COMENTARIO.
         nivel_actual.draw(pantalla)
@@ -106,15 +109,31 @@ def Play(pantalla, jugador):
         textoTiempo = letraTiempo.render("Tiempo: " + str(tiempo_transcurrido), 1, constantes.NEGRO)
         pantalla.blit(textoTiempo, (300, 10))
         
-        if (tiempo_transcurrido < 10) or ((current_position < -23000) and no_aparece_boss):
+        LetraMensaje = pygame.font.Font(None, 38)
+        El_Mensaje = LetraMensaje.render("El chef se acerca, apurate", 1, constantes.ROJO)
+        
+        if tiempo_transcurrido < 20 and no_aparece_boss:
+                pantalla.blit(El_Mensaje,(330,80))
+            
+            
+        
+        if tiempo_transcurrido < 10 and no_aparece_boss:
                 Jefe_final.nivel = nivel_actual
                 Jefe_final.rect.x = jugador_principal.rect.x - 950 
                 Jefe_final.rect.y = constantes.LARGO_PANTALLA - Jefe_final.rect.height 
                 Jefe_final.jugador = jugador_principal
                 lista_sprites_activos.add(Jefe_final)
                 no_aparece_boss = False
+        
                 
-        print current_position
+        if current_position < -23000 and no_aparece_boss:
+                Jefe_final.nivel = nivel_actual
+                Jefe_final.rect.x = jugador_principal.rect.x - 950 
+                Jefe_final.rect.y = constantes.LARGO_PANTALLA - Jefe_final.rect.height 
+                Jefe_final.jugador = jugador_principal
+                lista_sprites_activos.add(Jefe_final)
+                no_aparece_boss = False
+                print current_position
         
         # TODO EL CODIGO PARA DIBUJAR DEBE IR POR ARRIBA DE ESTE COMENTARIO.
         clock.tick(60)
@@ -173,8 +192,8 @@ def main():
     CreditosReales4 = letraParaCreditos.render("Personajes: Lucio Mendez, Fernanda Mayer y Agustin Rodriguez", 1, constantes.BLANCO)
     CreditosReales5 = letraParaCreditos.render("Programacion: Manuel Freire", 1, constantes.BLANCO)
     CreditosReales6 = letraParaCreditos.render("Agradecimientos: Manuel Garrido, Rosario Sosa, Mariana Betervide, ", 1, constantes.BLANCO)
-    CreditosReales2 = letraParaCreditos.render("Joel Barros, Cinthia, Mario La Camera, Patricia Aldaz, Pablo Navas ", 1, constantes.BLANCO)
-    CreditosReales7 = letraParaCreditos.render("y los Rodrigos Perez", 1, constantes.BLANCO)
+    CreditosReales2 = letraParaCreditos.render("Joel Barros, Cinthia, Mario La Camera, Patricia Aldaz, Pablo Navas, ", 1, constantes.BLANCO)
+    CreditosReales7 = letraParaCreditos.render("Gustavo Signorele y los Rodrigos Perez", 1, constantes.BLANCO)
     while not salir:
         e = pygame.event.wait()
         if estado != estado_previo:
