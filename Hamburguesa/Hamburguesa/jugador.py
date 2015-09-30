@@ -1,7 +1,6 @@
 import pygame
 import nivel
 import constantes
-
 from platforma import PlataformaConMovimiento
 from funciones_spritesheet import SpriteSheet
 
@@ -22,7 +21,6 @@ class Player(pygame.sprite.Sprite):
 
     # Lista de sprite con las cosas que nos podemos chocar.
     nivel = None
-    
     vidas = 10
     puntos = 0
     sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
@@ -142,8 +140,7 @@ class Player(pygame.sprite.Sprite):
 
 
         self.rect = self.image.get_rect()
-
-
+    
     def update(self):
         """ Metodo que actualiza la posicion del jugador. """
         

@@ -11,9 +11,9 @@ from jugador import Player
 from time import time
 
 
-def Play(pantalla, jugador):
+def Play(pantalla,dificultad, jugador):
     tiempo_comienzo = time() + 120
-    
+        
     # Creamos al jugador con la imagen p1_walk.png
     jugador_principal = Player(jugador)
     letraParaPuntos = pygame.font.Font(None, 24)
@@ -94,7 +94,13 @@ def Play(pantalla, jugador):
                 tiempo_transcurrido = int(tiempo_comienzo - time())
                 no_aparece_boss = True
                 
-                
+        #Lo que modifique fue esto, el menu y la funcion play
+        if dificultad == 1:
+            jugador_principal.vidas = 10
+        
+        
+        if dificultad == 2:
+            jugador_principal.vidas = 5       
         # TODO EL CODIGO PARA DIBUJAR DEBE IR DEBAJO DE ESTE COMENTARIO.
         nivel_actual.draw(pantalla)
         lista_sprites_activos.draw(pantalla)
@@ -135,6 +141,7 @@ def Play(pantalla, jugador):
                 no_aparece_boss = False
                 print current_position
         
+        
         # TODO EL CODIGO PARA DIBUJAR DEBE IR POR ARRIBA DE ESTE COMENTARIO.
         clock.tick(60)
         pygame.display.flip()
@@ -171,13 +178,17 @@ def main():
     historia = cMenu(800, 500, 400, 400, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     creditos = cMenu(800, 500, 630, 348, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     How_to_play = cMenu(800, 500, 630, 348, "horizontal", 1, pantalla, [("Volver", 0, None)])
+    Menu_dificultad = cMenu(400, 150, 100, 70, "vertical", 3, pantalla, [("Facil", 8, None), ("Dificil", 9, None), ("Volver", 1, None)])
+    
     menuJugador.set_center(True, True)
     menuJugador.set_alignment("center", "center")
+    
     letraParaCreditos = pygame.font.Font(None, 45)
     estado = 0
     estado_previo = 1
     opcion = []
     salir = False
+    dificultad = 1
     logo = pygame.image.load("imagenes/logo.png").convert()
     logo.set_colorkey(constantes.BLANCO)
     textoCreditos1 = letraParaCreditos.render("Utiliza las flechas izquierda y derecha para moverte hacia delante y", 1, constantes.BLANCO)
@@ -194,6 +205,7 @@ def main():
     CreditosReales6 = letraParaCreditos.render("Agradecimientos: Manuel Garrido, Rosario Sosa, Mariana Betervide, ", 1, constantes.BLANCO)
     CreditosReales2 = letraParaCreditos.render("Joel Barros, Cinthia, Mario La Camera, Patricia Aldaz, Pablo Navas, ", 1, constantes.BLANCO)
     CreditosReales7 = letraParaCreditos.render("Gustavo Signorele y los Rodrigos Perez", 1, constantes.BLANCO)
+    
     while not salir:
         e = pygame.event.wait()
         if estado != estado_previo:
@@ -228,10 +240,10 @@ def main():
                 salir = True
             elif estado == 5:
                 jugador = 1
-                Play(pantalla, jugador)
+                opcion, estado = Menu_dificultad.update(e, estado)
             elif estado == 6:
                 jugador = 2
-                Play(pantalla, jugador)
+                opcion, estado = Menu_dificultad.update(e, estado)
             elif estado == 7:
                 pantalla.fill(constantes.NEGRO)
                 opcion, estado = How_to_play.update(e, estado)
@@ -243,6 +255,14 @@ def main():
                 pantalla.blit(textoCreditos5, (25, 410))
                 pantalla.blit(textoCreditos6, (25, 510))
                 pygame.display.flip()
+                
+            elif estado == 8:
+                dificultad = 1
+                Play(pantalla, dificultad, jugador)
+                
+            elif estado == 9:
+                dificultad = 2
+                Play(pantalla, dificultad, jugador)
         if e.type == pygame.QUIT:
             salir = True
         pygame.display.update(opcion)    

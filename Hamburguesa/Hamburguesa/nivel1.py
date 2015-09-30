@@ -82,6 +82,7 @@ class Level_01(Level):
                                 [MAYONESA, 3600, 250, 3600, 3600, 150, 450, 0, 2],
                                 [MAYONESA, 4100, 120, 3900, 4300, 120, 120, 2, 0],
                                 [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
+                                [MAYONESA, 8250, 90, 8250, 8900, 90, 90, 2, 0],
                                 [MAYONESA, 10900, 350,10600,10600,150, 450, 0, 2],
                                 [MAYONESA, 16250, 170,16250,16250,150, 450, 0, 2],
                                 [VERSION_LARGA, 18600, 280,18300,18750,280, 280, 2, 0]]
@@ -127,7 +128,7 @@ class Level_01(Level):
         #Lista de enemigos (solo del principio del nivel dado que no eran necesarios)  
         nivel_enemigos=[[ENEMY, 500, 300, 450, 650, 315, 320, 1.5,0],
                         [ENEMY, 900, 210, 900, 1000, 210, 210,1.5,0],
-                        [ENEMY_F,1658,165, 1658,1658,100, 100, 0, 0],
+                        [ENEMY_F,1250, 155, 1150, 1650, 155, 155, 2, 0],
                         [ENEMY, 3598, 478, 3500,3798,478,478, 1.5,0],
                         [ENEMY, 4700, 60, 4650, 4850, 80, 80, 1.5,0],
                         [ENEMY, 5350, 40, 5300, 5400, 65,65, 1.5, 0],
@@ -172,7 +173,7 @@ class Level_01(Level):
         
        
         # Se agrega una plataforma en movimiento.
-        bloque = PlataformaConMovimiento(MAYONESA)
+        """"loque = PlataformaConMovimiento(MAYONESA)
         bloque.rect.x = 8500
         bloque.rect.y = 90
         bloque.limite_izquierdo = 8250 
@@ -180,7 +181,7 @@ class Level_01(Level):
         bloque.mover_x = 2
         bloque.jugador = self.jugador
         bloque.nivel = self
-        self.lista_plataformas.add(bloque)
+        self.lista_plataformas.add(bloque)"""
         
         """bloque = PlataformaConMovimiento(MAYONESA)
         bloque.rect.x = 17650
