@@ -4,6 +4,7 @@ import constantes
 from platforma import PlataformaConMovimiento
 from funciones_spritesheet import SpriteSheet
 
+
 pygame.mixer.init()
 class Player(pygame.sprite.Sprite):
     """Clase utilizada para desarrollar los jugadores del juego. """
@@ -85,52 +86,52 @@ class Player(pygame.sprite.Sprite):
             self.jugador_frame_izq.append(imagen)
 
         if jugador == 2:
-            sprite_sheet = SpriteSheet("imagenes/movimientos hamburger.png")
+            sprite_sheet = SpriteSheet("imagenes/PAPAS.png")
             
             # Carga de todos los sprite de la imagen hacia la derecha.
-            imagen = sprite_sheet.obtener_imagen(0, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(0, 0, 100, 124, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(108, 0, 101, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(100, 0, 105, 124, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(213, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(205, 0, 105, 124, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(318, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(310, 0, 105, 124, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(423, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(415, 0, 105, 124, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(528, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(520, 0, 105, 124, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(633, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(635, 0, 95, 124, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(738, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(740, 0, 95, 124, constantes.BLANCO)
             self.jugador_frame_der.append(imagen)
             
             
             
     
             # # Carga de todos los sprite de la imagen hacia la derecha y la rotamos.
-            imagen = sprite_sheet.obtener_imagen(0, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(0, 0, 100, 124, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(105, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(100, 0, 105, 124, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(210, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(205, 0, 105, 124, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(315, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(310, 0, 105, 124, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(420, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(415, 0, 105, 124, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(525, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(520, 0, 105, 124, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(630, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(635, 0, 95, 124, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(735, 0, 100, 115, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(740, 0, 95, 124, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
 

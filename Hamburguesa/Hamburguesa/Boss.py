@@ -1,7 +1,7 @@
 import pygame
 import constantes
 from funciones_spritesheet import SpriteSheet
-
+import jugador
 
 class BOSS(pygame.sprite.Sprite):
     # -- Atributos

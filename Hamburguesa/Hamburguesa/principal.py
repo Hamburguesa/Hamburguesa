@@ -1,18 +1,17 @@
 import pygame
-
+import funciones_spritesheet
 import constantes
 from menu import cMenu, EVENT_CHANGE_STATE
 import menu
 from Boss import BOSS
 from nivel1 import Level_01
 from nivel2 import Level_02 
-
 from jugador import Player
 from time import time
 
 
-def Play(pantalla,dificultad, jugador):
-    tiempo_comienzo = time() + 120
+def Play(pantalla,time2, jugador):
+    tiempo_comienzo = time() + time2
         
     # Creamos al jugador con la imagen p1_walk.png
     jugador_principal = Player(jugador)
@@ -91,16 +90,11 @@ def Play(pantalla,dificultad, jugador):
                 numero_del_nivel_actual += 1
                 nivel_actual = lista_niveles[numero_del_nivel_actual]
                 jugador_principal.nivel = nivel_actual
-                tiempo_transcurrido = int(tiempo_comienzo - time())
+                tiempo_transcurrido = time() + time2
                 no_aparece_boss = True
                 
         #Lo que modifique fue esto, el menu y la funcion play
-        if dificultad == 1:
-            jugador_principal.vidas = 10
-        
-        
-        if dificultad == 2:
-            jugador_principal.vidas = 5       
+               
         # TODO EL CODIGO PARA DIBUJAR DEBE IR DEBAJO DE ESTE COMENTARIO.
         nivel_actual.draw(pantalla)
         lista_sprites_activos.draw(pantalla)
@@ -123,7 +117,7 @@ def Play(pantalla,dificultad, jugador):
             
             
         
-        if tiempo_transcurrido < 10 and no_aparece_boss:
+        if tiempo_transcurrido < 19 and no_aparece_boss:
                 Jefe_final.nivel = nivel_actual
                 Jefe_final.rect.x = jugador_principal.rect.x - 950 
                 Jefe_final.rect.y = constantes.LARGO_PANTALLA - Jefe_final.rect.height 
@@ -173,8 +167,11 @@ def main():
     sonido3.play(-1)
     pygame.display.set_caption("Comida rapida")
 
+    # Imagenes de frente
+    Hamburger = pygame.image.load("imagenes/hamburguesafrente.png")
+    
     menu_principal = cMenu(10, 50, 50, 39, "vertical", 5, pantalla, [("Jugar", 1, None), ("Historia", 2, None), ("Creditos", 3, None), ("Como jugar", 7, None), ("Salir", 4, None)])
-    menuJugador = cMenu(30, 350, 100, 5, "horizontal", 3, pantalla, [("Hamburguesa", 5, None), ("Papa Frita", 6, None), ("Volver", 0, None)])
+    menuJugador = cMenu(30, 350, 75, 5, "horizontal", 3, pantalla, [("", 5, Hamburger), ("Papa Frita", 6, None), ("Volver", 0, None)])
     historia = cMenu(800, 500, 400, 400, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     creditos = cMenu(800, 500, 630, 348, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     How_to_play = cMenu(800, 500, 630, 348, "horizontal", 1, pantalla, [("Volver", 0, None)])
@@ -257,12 +254,10 @@ def main():
                 pygame.display.flip()
                 
             elif estado == 8:
-                dificultad = 1
-                Play(pantalla, dificultad, jugador)
+                Play(pantalla, 140, jugador)
                 
             elif estado == 9:
-                dificultad = 2
-                Play(pantalla, dificultad, jugador)
+                Play(pantalla, 110, jugador)
         if e.type == pygame.QUIT:
             salir = True
         pygame.display.update(opcion)    
