@@ -11,6 +11,7 @@ BLANCO = (255,255,255)
 AZUL = (0,0,255)
 ROJO = (255,0,0)
 VERDE = (0,255,0)
+BLANCO2 = (255, 255, 254)
 
 # Dimensiones de la pantalla
 ANCHO_PANTALLA  = 1000

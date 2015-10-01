@@ -1,5 +1,4 @@
 import pygame
-import funciones_spritesheet
 import constantes
 from menu import cMenu, EVENT_CHANGE_STATE
 import menu
@@ -90,7 +89,7 @@ def Play(pantalla,time2, jugador):
                 numero_del_nivel_actual += 1
                 nivel_actual = lista_niveles[numero_del_nivel_actual]
                 jugador_principal.nivel = nivel_actual
-                tiempo_transcurrido = time() + time2
+                tiempo_comienzo = time() + time2
                 no_aparece_boss = True
                 
         #Lo que modifique fue esto, el menu y la funcion play
@@ -99,14 +98,14 @@ def Play(pantalla,time2, jugador):
         nivel_actual.draw(pantalla)
         lista_sprites_activos.draw(pantalla)
         
-        textoPuntos = letraParaPuntos.render("Puntos: " + str(jugador_principal.puntos), 1, constantes.NEGRO)
+        textoPuntos = letraParaPuntos.render("Puntos: " + str(jugador_principal.puntos), 1, constantes.ROJO)
         pantalla.blit(textoPuntos, (10, 10))
         
-        textoVidas = letraParaVidas.render("Vidas: " + str(jugador_principal.vidas), 1, constantes.NEGRO)
+        textoVidas = letraParaVidas.render("Vidas: " + str(jugador_principal.vidas), 1, constantes.ROJO)
         pantalla.blit(textoVidas, (900, 10))
         
         tiempo_transcurrido = int(tiempo_comienzo - time())
-        textoTiempo = letraTiempo.render("Tiempo: " + str(tiempo_transcurrido), 1, constantes.NEGRO)
+        textoTiempo = letraTiempo.render("Tiempo: " + str(tiempo_transcurrido), 1, constantes.ROJO)
         pantalla.blit(textoTiempo, (300, 10))
         
         LetraMensaje = pygame.font.Font(None, 38)
@@ -141,6 +140,7 @@ def Play(pantalla,time2, jugador):
         pygame.display.flip()
         if jugador_principal.vidas == 0 or tiempo_transcurrido == 0:
             pantalla.fill(constantes.NEGRO)
+            print current_position
             texto_gameover1 = letraParaMarcador1.render("GAME OVER", 1, constantes.ROJO)
             texto_gameover2 = letraParaMarcador2.render("Presione cualquier tecla para volver a jugar", 1, constantes.ROJO)
             pantalla.blit(texto_gameover1, [300, 250])
@@ -169,9 +169,10 @@ def main():
 
     # Imagenes de frente
     Hamburger = pygame.image.load("imagenes/hamburguesafrente.png")
+    Papas = pygame.image.load("imagenes/papafritafrente.png")
     
     menu_principal = cMenu(10, 50, 50, 39, "vertical", 5, pantalla, [("Jugar", 1, None), ("Historia", 2, None), ("Creditos", 3, None), ("Como jugar", 7, None), ("Salir", 4, None)])
-    menuJugador = cMenu(30, 350, 75, 5, "horizontal", 3, pantalla, [("", 5, Hamburger), ("Papa Frita", 6, None), ("Volver", 0, None)])
+    menuJugador = cMenu(30, 350, 75, 5, "horizontal", 3, pantalla, [("", 5, Hamburger), ("", 6, Papas), ("Volver", 0, None)])
     historia = cMenu(800, 500, 400, 400, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     creditos = cMenu(800, 500, 630, 348, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     How_to_play = cMenu(800, 500, 630, 348, "horizontal", 1, pantalla, [("Volver", 0, None)])
@@ -185,7 +186,6 @@ def main():
     estado_previo = 1
     opcion = []
     salir = False
-    dificultad = 1
     logo = pygame.image.load("imagenes/logo.png").convert()
     logo.set_colorkey(constantes.BLANCO)
     textoCreditos1 = letraParaCreditos.render("Utiliza las flechas izquierda y derecha para moverte hacia delante y", 1, constantes.BLANCO)
@@ -212,7 +212,7 @@ def main():
             if estado == 0:
                 pantalla.fill(constantes.NEGRO)
                 opcion, estado = menu_principal.update(e, estado)
-                pantalla.blit(logo, (300, 20))
+                pantalla.blit(logo, (300, 50))
                 pygame.display.flip()
             elif estado == 1:
                 pantalla.fill(constantes.NEGRO)

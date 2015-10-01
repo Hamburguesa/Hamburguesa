@@ -1,6 +1,6 @@
 import pygame
 import constantes
-from platforma import LIMITE, MAYONESA, ENEMY, SACHET, SACHET2, VERSION_LARGA, Plataforma, PlataformaConMovimiento
+from platforma import LIMITE, MESA, ENEMY, SACHET, SACHET2, Plataforma, PlataformaConMovimiento
 from nivel import Level
 
 #Clase que define el segundo nivel.
@@ -16,13 +16,13 @@ class Level_02(Level):
         Level.__init__(self, jugador)
         
         #Cargamos la imagen de fondo.
-        self.fondo = pygame.image.load("imagenes/background_02.png").convert()
-        self.fondo.set_colorkey(constantes.BLANCO)
-        self.limite_nivel = -25000
-        self.limit_nivel_suelo=500
+        self.fondo = pygame.image.load("imagenes/fondo2.png").convert()
+        self.fondo.set_colorkey(constantes.BLANCO2)
+        self.limite_nivel = -48000
+        self.limit_nivel_suelo=590
 
         # Lista con los bloques de plataformas, indicando la ubicacion x,y y el tipo 
-        nivel = []
+        nivel = [[MESA, 1560, 400]]
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al jugador.
         for plataforma in nivel:
