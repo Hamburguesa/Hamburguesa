@@ -21,7 +21,7 @@ def Play(pantalla,time2, jugador):
     
 # Creamos todos los niveles del juego
     lista_niveles = []
-    lista_niveles.append(Level_01(jugador_principal))
+    #lista_niveles.append(Level_01(jugador_principal))
     lista_niveles.append(Level_02(jugador_principal))
     
 # Seteamos cual es el primer nivel.
@@ -225,13 +225,13 @@ def main():
             elif estado == 3:
                 pantalla.fill(constantes.NEGRO)
                 opcion, estado = creditos.update(e, estado)
-                pantalla.blit(CreditosReales1, (25, 20))
-                pantalla.blit(CreditosReales3, (25, 110))
-                pantalla.blit(CreditosReales4, (25, 200))
-                pantalla.blit(CreditosReales5, (25, 290))
-                pantalla.blit(CreditosReales6, (25, 380))
-                pantalla.blit(CreditosReales2, (25, 420))
-                pantalla.blit(CreditosReales7, (25, 460))
+                pantalla.blit(CreditosReales1, (15, 20))
+                pantalla.blit(CreditosReales3, (15, 110))
+                pantalla.blit(CreditosReales4, (15, 200))
+                pantalla.blit(CreditosReales5, (15, 290))
+                pantalla.blit(CreditosReales6, (15, 380))
+                pantalla.blit(CreditosReales2, (15, 420))
+                pantalla.blit(CreditosReales7, (15, 460))
                 pygame.display.flip()
             elif estado == 4:
                 salir = True
@@ -244,13 +244,13 @@ def main():
             elif estado == 7:
                 pantalla.fill(constantes.NEGRO)
                 opcion, estado = How_to_play.update(e, estado)
-                pantalla.blit(textoCreditos1, (25, 10))
-                pantalla.blit(textoCreditos7, (25, 40))
-                pantalla.blit(textoCreditos2, (25, 110))
-                pantalla.blit(textoCreditos3, (25, 210))
-                pantalla.blit(textoCreditos4, (25, 310))
-                pantalla.blit(textoCreditos5, (25, 410))
-                pantalla.blit(textoCreditos6, (25, 510))
+                pantalla.blit(textoCreditos1, (15, 10))
+                pantalla.blit(textoCreditos7, (15, 40))
+                pantalla.blit(textoCreditos2, (15, 110))
+                pantalla.blit(textoCreditos3, (15, 210))
+                pantalla.blit(textoCreditos4, (15, 310))
+                pantalla.blit(textoCreditos5, (15, 410))
+                pantalla.blit(textoCreditos6, (15, 510))
                 pygame.display.flip()
                 
             elif estado == 8:
