@@ -207,7 +207,7 @@ def main():
     textoCreditos3 = letraParaCreditos.render("Captura los sachets de mayonesa para sumar puntos", 1, constantes.BLANCO)
     textoCreditos4 = letraParaCreditos.render("Captura los sachets de ketchup para recuperar vidas", 1, constantes.BLANCO)
     textoCreditos5 = letraParaCreditos.render("Esquiva las ratas para no perder vidas", 1, constantes.BLANCO)
-    textoCreditos6 = letraParaCreditos.render(u"El chef te persigue, no dejes que te atrape o el juego terminará ", 1, constantes.BLANCO)
+    textoCreditos6 = letraParaCreditos.render(u"El chef te persigue, si te atrapa el juego terminará ", 1, constantes.BLANCO)
     CreditosReales1 = letraParaCreditos.render("Historia: Manuel Freire, Antonela Tapia, Fernanda Mayer", 1, constantes.BLANCO)
     CreditosReales3 = letraParaCreditos.render("Fondo de los niveles: Fernanda Mayer", 1, constantes.BLANCO)
     CreditosReales4 = letraParaCreditos.render(u"Personajes: Lucio Méndez, Fernanda Mayer y Agustín Rodríguez", 1, constantes.BLANCO)
