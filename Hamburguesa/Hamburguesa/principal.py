@@ -268,7 +268,7 @@ def main():
                 pygame.display.flip()
                 
             elif estado == 8:
-                Play(pantalla, 140, jugador)
+                Play(pantalla, 40, jugador)
                 
             elif estado == 9:
                 Play(pantalla, 110, jugador)

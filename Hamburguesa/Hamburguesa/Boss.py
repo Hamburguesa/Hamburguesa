@@ -29,15 +29,15 @@ class BOSS(pygame.sprite.Sprite):
         sprite_sheet = SpriteSheet(ruta)
         
         # Carga de todos los sprite de la imagen hacia la derecha.
-        imagen = sprite_sheet.obtener_imagen(0, 0, 250, 600,constantes.BLANCO)
+        imagen = sprite_sheet.obtener_imagen(0, 0, 250, 580,constantes.BLANCO)
         self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(280, 0, 280, 600,constantes.BLANCO)
+        imagen = sprite_sheet.obtener_imagen(280, 0, 280, 580,constantes.BLANCO)
         self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(560, 0, 280, 600,constantes.BLANCO)
+        imagen = sprite_sheet.obtener_imagen(560, 0, 280, 580,constantes.BLANCO)
         self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(873, 0, 280, 600,constantes.BLANCO)
+        imagen = sprite_sheet.obtener_imagen(873, 0, 280, 580,constantes.BLANCO)
         self.jugador_frame_der.append(imagen)
-        imagen = sprite_sheet.obtener_imagen(1185, 0, 276, 600,constantes.BLANCO)
+        imagen = sprite_sheet.obtener_imagen(1185, 0, 276, 580,constantes.BLANCO)
         self.jugador_frame_der.append(imagen)      
 
         # Seteamos con que sprite comenzar

@@ -154,3 +154,13 @@ class Level_02(Level):
             bloque.jugador = self.jugador
             bloque.nivel = self
             self.lista_enemigos.add(bloque)
+            
+        nivel_vidas=[[SACHET2, 10001,-5],
+                     [SACHET2, 20002,50]]
+        
+        for plataforma in nivel_vidas:
+            bloque = Plataforma(plataforma[0])
+            bloque.rect.x = plataforma[1]
+            bloque.rect.y = plataforma[2]
+            bloque.jugador = self.jugador
+            self.lista_vidas.add(bloque)
