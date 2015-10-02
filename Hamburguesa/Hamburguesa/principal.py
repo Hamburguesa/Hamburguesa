@@ -122,12 +122,12 @@ def Play(pantalla,time2, jugador):
         LetraMensaje = pygame.font.Font(None, 38)
         El_Mensaje = LetraMensaje.render("El chef se acerca, apurate", 1, constantes.ROJO)
         
-        if tiempo_transcurrido < 20 and no_aparece_boss:
+        if tiempo_transcurrido < 30 and no_aparece_boss:
                 pantalla.blit(El_Mensaje,(330,80))
             
             
         
-        if tiempo_transcurrido < 19 and no_aparece_boss:
+        if tiempo_transcurrido < 20 and no_aparece_boss:
                 Jefe_final.nivel = nivel_actual
                 Jefe_final.rect.x = jugador_principal.rect.x - 950 
                 Jefe_final.rect.y = constantes.LARGO_PANTALLA - Jefe_final.rect.height 
@@ -136,7 +136,7 @@ def Play(pantalla,time2, jugador):
                 no_aparece_boss = False
         
                 
-        if current_position < -23000 and no_aparece_boss:
+        if current_position < -22900 and no_aparece_boss:
                 Jefe_final.nivel = nivel_actual
                 Jefe_final.rect.x = jugador_principal.rect.x - 950 
                 Jefe_final.rect.y = constantes.LARGO_PANTALLA - Jefe_final.rect.height 
@@ -268,7 +268,7 @@ def main():
                 pygame.display.flip()
                 
             elif estado == 8:
-                Play(pantalla, 40, jugador)
+                Play(pantalla, 140, jugador)
                 
             elif estado == 9:
                 Play(pantalla, 110, jugador)
