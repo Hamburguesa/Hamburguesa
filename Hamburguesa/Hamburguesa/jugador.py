@@ -32,7 +32,9 @@ class Player(pygame.sprite.Sprite):
             Aca en donde se debe cargar el sprite sheet del jugador.
             Se debe cargar los sprite con movimiento hacia la izquierda y hacia la derecha.
         """
-
+        self.jugador_frame_der = []
+        self.jugador_frame_izq = []
+        
         pygame.sprite.Sprite.__init__(self)
         
         if jugador == 1:
@@ -69,10 +71,10 @@ class Player(pygame.sprite.Sprite):
             imagen = sprite_sheet.obtener_imagen(213, 0, 104, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(320, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(320, 0, 101, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
-            imagen = sprite_sheet.obtener_imagen(425, 0, 104, 118, constantes.BLANCO)
+            imagen = sprite_sheet.obtener_imagen(425, 0, 101, 118, constantes.BLANCO)
             imagen = pygame.transform.flip(imagen, True, False)
             self.jugador_frame_izq.append(imagen)
             imagen = sprite_sheet.obtener_imagen(531, 0, 104, 118, constantes.BLANCO)
@@ -217,7 +219,7 @@ class Player(pygame.sprite.Sprite):
         if self.mover_y == 0:
             self.mover_y = 1
         else:
-            self.mover_y += .15
+            self.mover_y += .25
 
         # Verificamos si estamos en el suelo.
         if self.rect.y >= self.nivel.limit_nivel_suelo - self.rect.height and self.mover_y >= 0:

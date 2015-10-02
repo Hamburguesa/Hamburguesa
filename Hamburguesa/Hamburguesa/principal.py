@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import pygame
 import constantes
 from menu import cMenu, EVENT_CHANGE_STATE
@@ -29,7 +31,7 @@ def Play(pantalla,time2, jugador):
     nivel_actual = lista_niveles[numero_del_nivel_actual]
     lista_sprites_activos = pygame.sprite.Group()
     jugador_principal.nivel = nivel_actual
-    jugador_principal.rect.x = 700
+    jugador_principal.rect.x = 200
     jugador_principal.rect.y = constantes.LARGO_PANTALLA - jugador_principal.rect.height - 120
     lista_sprites_activos.add(jugador_principal)
     letraParaMarcador1 = pygame.font.Font(None, 56)
@@ -91,6 +93,15 @@ def Play(pantalla,time2, jugador):
                 jugador_principal.nivel = nivel_actual
                 tiempo_comienzo = time() + time2
                 no_aparece_boss = True
+            else:
+                pantalla.fill(constantes.NEGRO)
+                texto_gameover3 = letraParaMarcador1.render(u"¡Has Ganado!", 1, constantes.ROJO)
+                texto_gameover4 = letraParaMarcador2.render("Presiona cualquier tecla para volver a jugar", 1, constantes.ROJO)
+                pantalla.blit(texto_gameover3, [300, 250])
+                pantalla.blit(texto_gameover4, [200, 310])
+                pygame.display.flip()
+                pygame.event.wait()
+                main()
                 
         #Lo que modifique fue esto, el menu y la funcion play
                
@@ -142,7 +153,7 @@ def Play(pantalla,time2, jugador):
             pantalla.fill(constantes.NEGRO)
             print current_position
             texto_gameover1 = letraParaMarcador1.render("GAME OVER", 1, constantes.ROJO)
-            texto_gameover2 = letraParaMarcador2.render("Presione cualquier tecla para volver a jugar", 1, constantes.ROJO)
+            texto_gameover2 = letraParaMarcador2.render("Presiona cualquier tecla para volver a jugar", 1, constantes.ROJO)
             pantalla.blit(texto_gameover1, [300, 250])
             pantalla.blit(texto_gameover2, [200, 310])
             pygame.display.flip()
@@ -171,12 +182,12 @@ def main():
     Hamburger = pygame.image.load("imagenes/hamburguesafrente.png")
     Papas = pygame.image.load("imagenes/papafritafrente.png")
     
-    menu_principal = cMenu(10, 50, 50, 39, "vertical", 5, pantalla, [("Jugar", 1, None), ("Historia", 2, None), ("Creditos", 3, None), ("Como jugar", 7, None), ("Salir", 4, None)])
+    menu_principal = cMenu(10, 50, 50, 39, "vertical", 5, pantalla, [("Jugar", 1, None), ("Historia", 2, None), (u"Créditos", 3, None), (u"Cómo jugar", 7, None), ("Salir", 4, None)])
     menuJugador = cMenu(30, 350, 75, 5, "horizontal", 3, pantalla, [("", 5, Hamburger), ("", 6, Papas), ("Volver", 0, None)])
     historia = cMenu(800, 500, 400, 400, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     creditos = cMenu(800, 500, 630, 348, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     How_to_play = cMenu(800, 500, 630, 348, "horizontal", 1, pantalla, [("Volver", 0, None)])
-    Menu_dificultad = cMenu(400, 150, 100, 70, "vertical", 3, pantalla, [("Facil", 8, None), ("Dificil", 9, None), ("Volver", 1, None)])
+    Menu_dificultad = cMenu(400, 150, 100, 70, "vertical", 3, pantalla, [(u"Fácil", 8, None), (u"Difícil", 9, None), ("Volver", 1, None)])
     
     menuJugador.set_center(True, True)
     menuJugador.set_alignment("center", "center")
@@ -188,20 +199,22 @@ def main():
     salir = False
     logo = pygame.image.load("imagenes/logo.png").convert()
     logo.set_colorkey(constantes.BLANCO)
-    textoCreditos1 = letraParaCreditos.render("Utiliza las flechas izquierda y derecha para moverte hacia delante y", 1, constantes.BLANCO)
-    textoCreditos7 = letraParaCreditos.render("atras", 1, constantes.BLANCO)
+    historiaa = pygame.image.load("imagenes/historia.png").convert()
+    historiaa.set_colorkey(constantes.BLANCO)
+    textoCreditos1 = letraParaCreditos.render("Utiliza las flechas izquierda y derecha para moverte hacia delante", 1, constantes.BLANCO)
+    textoCreditos7 = letraParaCreditos.render("y atras", 1, constantes.BLANCO)
     textoCreditos2 = letraParaCreditos.render("Utiliza la flecha superior para saltar", 1, constantes.BLANCO)
     textoCreditos3 = letraParaCreditos.render("Captura los sachets de mayonesa para sumar puntos", 1, constantes.BLANCO)
     textoCreditos4 = letraParaCreditos.render("Captura los sachets de ketchup para recuperar vidas", 1, constantes.BLANCO)
     textoCreditos5 = letraParaCreditos.render("Esquiva las ratas para no perder vidas", 1, constantes.BLANCO)
-    textoCreditos6 = letraParaCreditos.render("El chef te persigue, no dejes que te atrape ", 1, constantes.BLANCO)
+    textoCreditos6 = letraParaCreditos.render(u"El chef te persigue, no dejes que te atrape o el juego terminará ", 1, constantes.BLANCO)
     CreditosReales1 = letraParaCreditos.render("Historia: Manuel Freire, Antonela Tapia, Fernanda Mayer", 1, constantes.BLANCO)
     CreditosReales3 = letraParaCreditos.render("Fondo de los niveles: Fernanda Mayer", 1, constantes.BLANCO)
-    CreditosReales4 = letraParaCreditos.render("Personajes: Lucio Mendez, Fernanda Mayer y Agustin Rodriguez", 1, constantes.BLANCO)
-    CreditosReales5 = letraParaCreditos.render("Programacion: Manuel Freire", 1, constantes.BLANCO)
+    CreditosReales4 = letraParaCreditos.render(u"Personajes: Lucio Méndez, Fernanda Mayer y Agustín Rodríguez", 1, constantes.BLANCO)
+    CreditosReales5 = letraParaCreditos.render(u"Programación: Manuel Freire", 1, constantes.BLANCO)
     CreditosReales6 = letraParaCreditos.render("Agradecimientos: Manuel Garrido, Rosario Sosa, Mariana Betervide, ", 1, constantes.BLANCO)
-    CreditosReales2 = letraParaCreditos.render("Joel Barros, Cinthia, Mario La Camera, Patricia Aldaz, Pablo Navas, ", 1, constantes.BLANCO)
-    CreditosReales7 = letraParaCreditos.render("Gustavo Signorele y los Rodrigos Perez", 1, constantes.BLANCO)
+    CreditosReales2 = letraParaCreditos.render(u"Joel Barros, Cinthia Núñez, Mario La Cámera, Patricia Aldaz, Pablo Navas, ", 1, constantes.BLANCO)
+    CreditosReales7 = letraParaCreditos.render(u"Gustavo Signorele y los Rodrigos Pérez", 1, constantes.BLANCO)
     
     while not salir:
         e = pygame.event.wait()
@@ -220,18 +233,19 @@ def main():
                 pygame.display.flip()
             elif estado == 2:
                 pantalla.fill(constantes.NEGRO)
+                pantalla.blit(historiaa,(200,80))
                 opcion, estado = historia.update(e, estado)
                 pygame.display.flip()
             elif estado == 3:
                 pantalla.fill(constantes.NEGRO)
                 opcion, estado = creditos.update(e, estado)
-                pantalla.blit(CreditosReales1, (15, 20))
-                pantalla.blit(CreditosReales3, (15, 110))
-                pantalla.blit(CreditosReales4, (15, 200))
-                pantalla.blit(CreditosReales5, (15, 290))
-                pantalla.blit(CreditosReales6, (15, 380))
-                pantalla.blit(CreditosReales2, (15, 420))
-                pantalla.blit(CreditosReales7, (15, 460))
+                pantalla.blit(CreditosReales1, (25, 20))
+                pantalla.blit(CreditosReales3, (25, 110))
+                pantalla.blit(CreditosReales4, (25, 200))
+                pantalla.blit(CreditosReales5, (25, 290))
+                pantalla.blit(CreditosReales6, (25, 380))
+                pantalla.blit(CreditosReales2, (25, 420))
+                pantalla.blit(CreditosReales7, (25, 460))
                 pygame.display.flip()
             elif estado == 4:
                 salir = True
@@ -244,13 +258,13 @@ def main():
             elif estado == 7:
                 pantalla.fill(constantes.NEGRO)
                 opcion, estado = How_to_play.update(e, estado)
-                pantalla.blit(textoCreditos1, (15, 10))
-                pantalla.blit(textoCreditos7, (15, 40))
-                pantalla.blit(textoCreditos2, (15, 110))
-                pantalla.blit(textoCreditos3, (15, 210))
-                pantalla.blit(textoCreditos4, (15, 310))
-                pantalla.blit(textoCreditos5, (15, 410))
-                pantalla.blit(textoCreditos6, (15, 510))
+                pantalla.blit(textoCreditos1, (25, 10))
+                pantalla.blit(textoCreditos7, (25, 40))
+                pantalla.blit(textoCreditos2, (25, 110))
+                pantalla.blit(textoCreditos3, (25, 210))
+                pantalla.blit(textoCreditos4, (25, 310))
+                pantalla.blit(textoCreditos5, (25, 410))
+                pantalla.blit(textoCreditos6, (25, 510))
                 pygame.display.flip()
                 
             elif estado == 8:
