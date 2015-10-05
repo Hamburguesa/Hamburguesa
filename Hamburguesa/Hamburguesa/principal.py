@@ -109,14 +109,14 @@ def Play(pantalla,time2, jugador):
         nivel_actual.draw(pantalla)
         lista_sprites_activos.draw(pantalla)
         
-        textoPuntos = letraParaPuntos.render("Puntos: " + str(jugador_principal.puntos), 1, constantes.ROJO)
+        textoPuntos = letraParaPuntos.render("Puntos: " + str(jugador_principal.puntos), 1, constantes.NEGRO)
         pantalla.blit(textoPuntos, (10, 10))
         
-        textoVidas = letraParaVidas.render("Vidas: " + str(jugador_principal.vidas), 1, constantes.ROJO)
+        textoVidas = letraParaVidas.render("Vidas: " + str(jugador_principal.vidas), 1, constantes.NEGRO)
         pantalla.blit(textoVidas, (900, 10))
         
         tiempo_transcurrido = int(tiempo_comienzo - time())
-        textoTiempo = letraTiempo.render("Tiempo: " + str(tiempo_transcurrido), 1, constantes.ROJO)
+        textoTiempo = letraTiempo.render("Tiempo: " + str(tiempo_transcurrido), 1, constantes.NEGRO)
         pantalla.blit(textoTiempo, (300, 10))
         
         LetraMensaje = pygame.font.Font(None, 38)
@@ -213,32 +213,28 @@ def main():
     CreditosReales4 = letraParaCreditos.render(u"Personajes: Lucio Méndez, Fernanda Mayer y Agustín Rodríguez", 1, constantes.BLANCO)
     CreditosReales5 = letraParaCreditos.render(u"Programación: Manuel Freire", 1, constantes.BLANCO)
     CreditosReales6 = letraParaCreditos.render("Agradecimientos: Manuel Garrido, Rosario Sosa, Mariana Betervide, ", 1, constantes.BLANCO)
-    CreditosReales2 = letraParaCreditos.render(u"Joel Barros, Cinthia Núñez, Mario La Cámera, Patricia Aldaz, Pablo Navas, ", 1, constantes.BLANCO)
-    CreditosReales7 = letraParaCreditos.render(u"Gustavo Signorele y los Rodrigos Pérez", 1, constantes.BLANCO)
+    CreditosReales2 = letraParaCreditos.render(u"Joel Barros, Cinthia Núñez, Mario La Cámera, Patricia Aldaz, Pablo", 1, constantes.BLANCO)
+    CreditosReales7 = letraParaCreditos.render(u"Navas y los Rodrigos Pérez", 1, constantes.BLANCO)
     
     while not salir:
         e = pygame.event.wait()
         if estado != estado_previo:
             pygame.event.post(pygame.event.Event(EVENT_CHANGE_STATE, key=0))
             estado_previo = estado
-        if e.type == pygame.KEYDOWN or e.type == menu.EVENT_CHANGE_STATE:
+
             if estado == 0:
                 pantalla.fill(constantes.NEGRO)
-                opcion, estado = menu_principal.update(e, estado)
                 pantalla.blit(logo, (300, 50))
                 pygame.display.flip()
             elif estado == 1:
                 pantalla.fill(constantes.NEGRO)
-                opcion, estado = menuJugador.update(e, estado)
                 pygame.display.flip()
             elif estado == 2:
                 pantalla.fill(constantes.NEGRO)
                 pantalla.blit(historiaa,(200,80))
-                opcion, estado = historia.update(e, estado)
                 pygame.display.flip()
             elif estado == 3:
                 pantalla.fill(constantes.NEGRO)
-                opcion, estado = creditos.update(e, estado)
                 pantalla.blit(CreditosReales1, (25, 20))
                 pantalla.blit(CreditosReales3, (25, 110))
                 pantalla.blit(CreditosReales4, (25, 200))
@@ -247,6 +243,29 @@ def main():
                 pantalla.blit(CreditosReales2, (25, 420))
                 pantalla.blit(CreditosReales7, (25, 460))
                 pygame.display.flip()
+            elif estado == 7:
+                pantalla.fill(constantes.NEGRO)
+                pantalla.blit(textoCreditos1, (25, 10))
+                pantalla.blit(textoCreditos7, (25, 40))
+                pantalla.blit(textoCreditos2, (25, 110))
+                pantalla.blit(textoCreditos3, (25, 210))
+                pantalla.blit(textoCreditos4, (25, 310))
+                pantalla.blit(textoCreditos5, (25, 410))
+                pantalla.blit(textoCreditos6, (25, 510))
+                pygame.display.flip()
+            else:
+                pantalla.fill(constantes.NEGRO)
+                pygame.display.flip()
+
+        if e.type == pygame.KEYDOWN or e.type == menu.EVENT_CHANGE_STATE:
+            if estado == 0:
+                opcion, estado = menu_principal.update(e, estado)
+            elif estado == 1:
+                opcion, estado = menuJugador.update(e, estado)
+            elif estado == 2:
+                opcion, estado = historia.update(e, estado)
+            elif estado == 3:
+                opcion, estado = creditos.update(e, estado)
             elif estado == 4:
                 salir = True
             elif estado == 5:
@@ -256,29 +275,18 @@ def main():
                 jugador = 2
                 opcion, estado = Menu_dificultad.update(e, estado)
             elif estado == 7:
-                pantalla.fill(constantes.NEGRO)
                 opcion, estado = How_to_play.update(e, estado)
-                pantalla.blit(textoCreditos1, (25, 10))
-                pantalla.blit(textoCreditos7, (25, 40))
-                pantalla.blit(textoCreditos2, (25, 110))
-                pantalla.blit(textoCreditos3, (25, 210))
-                pantalla.blit(textoCreditos4, (25, 310))
-                pantalla.blit(textoCreditos5, (25, 410))
-                pantalla.blit(textoCreditos6, (25, 510))
-                pygame.display.flip()
-                
             elif estado == 8:
                 Play(pantalla, 140, jugador)
-                
             elif estado == 9:
                 Play(pantalla, 110, jugador)
+
         if e.type == pygame.QUIT:
             salir = True
-        pygame.display.update(opcion)    
-        
-    pygame.quit()
+        pygame.display.update(opcion)
 
-    
+    pygame.quit()
+         
 
 if __name__ == "__main__":
     main()

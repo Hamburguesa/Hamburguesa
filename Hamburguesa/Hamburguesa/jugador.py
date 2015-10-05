@@ -251,4 +251,7 @@ class Player(pygame.sprite.Sprite):
     def parar(self):
         """ Se llama cuando soltamos la tecla. """
         self.mover_x = 0
-        
+    
+    def avanzarr(self):
+        self.mover_x = 100
+        self.direccion = "R"

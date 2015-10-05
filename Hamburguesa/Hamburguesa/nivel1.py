@@ -171,24 +171,3 @@ class Level_01(Level):
             bloque.jugador = self.jugador
             self.lista_vidas.add(bloque)
         
-       
-        # Se agrega una plataforma en movimiento.
-        """"loque = PlataformaConMovimiento(MAYONESA)
-        bloque.rect.x = 8500
-        bloque.rect.y = 90
-        bloque.limite_izquierdo = 8250 
-        bloque.limite_derecho = 8900
-        bloque.mover_x = 2
-        bloque.jugador = self.jugador
-        bloque.nivel = self
-        self.lista_plataformas.add(bloque)"""
-        
-        """bloque = PlataformaConMovimiento(MAYONESA)
-        bloque.rect.x = 17650
-        bloque.rect.y = 340
-        bloque.limite_inferior = 380
-        bloque.limite_superior = 280
-        bloque.mover_y = 2
-        bloque.jugador = self.jugador
-        bloque.nivel = self
-        self.lista_plataformas.add(bloque)"""

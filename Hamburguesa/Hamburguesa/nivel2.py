@@ -23,7 +23,7 @@ class Level_02(Level):
         self.limit_nivel_suelo=590
 
         # Lista con los bloques de plataformas, indicando la ubicacion x,y y el tipo 
-        nivel = [ 
+        nivel = [ [LIMITE, 0, 300],
                   [VERSION_LARGA, 450, 385],
                   [MAYONESA, 900, 260],
                   [VERSION_LARGA, 2000,220],
@@ -100,21 +100,21 @@ class Level_02(Level):
             self.lista_plataformas.add(bloque)
             
             nivel_puntos=[[SACHET, 500, 200],
-                      [SACHET, 1500, 160],
-                      [SACHET, 3000, 28],
-                      [SACHET, 4546, 32],
-                      [SACHET, 7800, 9],
-                      [SACHET, 8800, 37],
-                      [SACHET, 9800, 11],
-                      [SACHET, 12550, 220],
-                      [SACHET, 15000, 300],
-                      [SACHET, 17050, 100],
-                      [SACHET, 18550, 120],
-                      [SACHET, 21050, 200],
-                      [SACHET, 22000, 500],
-                      [SACHET, 23218, 90],
-                      [SACHET, 24218, 160],
-                      [SACHET, 24718, 120]]
+                          [SACHET, 1500, 160],
+                          [SACHET, 3000, 28],
+                          [SACHET, 4546, 32],
+                          [SACHET, 7800, 9],
+                          [SACHET, 8800, 37],
+                          [SACHET, 9800, 11],
+                          [SACHET, 12550, 220],
+                          [SACHET, 15000, 300],
+                          [SACHET, 17050, 100],
+                          [SACHET, 18550, 120],
+                          [SACHET, 21050, 200],
+                          [SACHET, 22000, 500],
+                          [SACHET, 23218, 90],
+                          [SACHET, 24218, 160],
+                          [SACHET, 24718, 120]]
         
         for plataforma in nivel_puntos:
             bloque = Plataforma(plataforma[0])
