@@ -24,17 +24,17 @@ class Level_02(Level):
 
         # Lista con los bloques de plataformas, indicando la ubicacion x,y y el tipo 
         nivel = [ [LIMITE, 0, 300],
-                  [VERSION_LARGA, 450, 385],
+                  [MAYONESA, 450, 390],
                   [MAYONESA, 900, 260],
-                  [VERSION_LARGA, 2000,220],
+                  [MAYONESA, 2000,220],
                   [VERSION_LARGA, 2480, 220],
                   [VERSION_LARGA, 2950,120],
                   [VERSION_LARGA, 4650, 120],
                   [MAYONESA, 5300, 95],
-                  [VERSION_LARGA, 5750, 95],
-                  [MAYONESA, 6500, 95],
-                  [MAYONESA, 7100, 95],
-                  [MAYONESA, 7800, 95],
+                  [VERSION_LARGA, 5750, 145],
+                  [MAYONESA, 6500, 155],
+                  [MAYONESA, 7100, 178],
+                  [MAYONESA, 7800, 185],
                   [MAYONESA, 9300, 90],
                   [MAYONESA, 9700, 90],
                   [LIMITE, 9860, 300],
@@ -76,8 +76,8 @@ class Level_02(Level):
             self.lista_plataformas.add(bloque)
 
 
-        nivel_movimiento = [[MAYONESA, 1250, 220, 1150, 1650, 220, 220, 2, 0],
-                            [MAYONESA, 3600, 250, 3600, 3600, 150, 450, 0, 2],
+        nivel_movimiento = [[VERSION_LARGA, 1250, 220, 1150, 1650, 220, 220, 2, 0],
+                            [VERSION_LARGA, 3580, 250, 3600, 3600, 150, 450, 0, 2],
                             [MAYONESA, 4100, 120, 3900, 4300, 120, 120, 2, 0],
                             [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
                             [MAYONESA, 8250, 90, 8250, 8900, 90, 90, 2, 0],
@@ -125,7 +125,6 @@ class Level_02(Level):
             
         nivel_enemigos=[[ENEMY, 500, 330, 450, 650, 315, 320, 1.5,0],
                         [ENEMY, 900, 210, 900, 1000, 210, 210,1.5,0],
-                        [ENEMY_F,1250, 155, 1150, 1650, 155, 155, 2, 0],
                         [ENEMY, 3598, 478, 3500,3798,478,478, 1.5,0],
                         [ENEMY, 4700, 60, 4650, 4850, 80, 80, 1.5,0],
                         [ENEMY, 5350, 40, 5300, 5400, 65,65, 1.5, 0],
