@@ -22,6 +22,7 @@ class Level_01(Level):
         self.limite_nivel = -25000
         self.limit_nivel_suelo=550
         self.limit_izquierdo=150
+        self.posicion_bigboss = -22900
 
         nivel = [ [LIMITE, 150, 300], 
                   [VERSION_LARGA, 450, 355],

@@ -11,12 +11,14 @@ class Level():
     lista_enemigos = None
     lista_puntos = None
     lista_vidas = None
+    #lista_gg = None
 
     # Imagen de fondo
     fondo = None
 
     # Valor numerico de que tan lejos avanzo nuestro jugador en el nivel
     posicion_jugador_nivel = 0
+    posicion_bigboss = 0
     limite_nivel = -1000
     limit_nivel_suelo=0
     limit_izquierdo=0 
@@ -27,6 +29,7 @@ class Level():
         self.lista_enemigos = pygame.sprite.Group()
         self.lista_puntos = pygame.sprite.Group()
         self.lista_vidas = pygame.sprite.Group()
+        #self.lista_gg = pygame.sprite.Group()
         self.jugador = jugador
 
 
@@ -36,7 +39,7 @@ class Level():
         self.lista_enemigos.update()
         self.lista_puntos.update()
         self.lista_vidas
-
+        #self.lista_gg = pygame.sprite.Group()
     def draw(self, pantalla):
         """ Dibujamos todo sobre el nivel. """
 
@@ -49,6 +52,7 @@ class Level():
         self.lista_enemigos.draw(pantalla)
         self.lista_puntos.draw(pantalla)
         self.lista_vidas.draw(pantalla)
+        #self.lista_gg.draw(pantalla)
 
     def avance_nivel(self, avance_x):
         """ Cuando el usuario se mueve de izquierda/derecha se debe mover el nivel """
@@ -66,3 +70,6 @@ class Level():
             
         for vidas in self.lista_vidas:
             vidas.rect.x+=avance_x
+            
+        #for gg in self.lista_gg:
+            #gg.rect.x+=avance_x

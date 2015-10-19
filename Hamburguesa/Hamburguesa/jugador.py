@@ -22,7 +22,7 @@ class Player(pygame.sprite.Sprite):
 
     # Lista de sprite con las cosas que nos podemos chocar.
     nivel = None
-    vidas = 10
+    vidas = 10.5
     puntos = 0
     sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
     sonido2 = pygame.mixer.Sound("sonidos/CuchilloPlat.wav")
@@ -205,6 +205,10 @@ class Player(pygame.sprite.Sprite):
         for una_vida in lista_de_vidas:
             una_vida.kill()
             self.vidas += 1
+        
+        #lista_de_gg = pygame.sprite.spritecollide(self, self.nivel.lista_gg, False)
+        #for un_gg in lista_de_gg:
+            #self.vidas =-1
             
         # Posicion del jugador en el nivel
         

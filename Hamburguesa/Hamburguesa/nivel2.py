@@ -21,7 +21,8 @@ class Level_02(Level):
         self.fondo.set_colorkey(constantes.BLANCO2)
         self.limite_nivel = -37486
         self.limit_nivel_suelo=590
-
+        self.posicion_bigboss = -34200
+        
         # Lista con los bloques de plataformas, indicando la ubicacion x,y y el tipo 
         nivel = [ [LIMITE, 0, 300],
                   [MAYONESA, 450, 390],
@@ -61,9 +62,10 @@ class Level_02(Level):
                   [MAYONESA, 22618, 170],
                   [VERSION_LARGA, 23118, 190],
                   [MAYONESA, 23718, 240],
-                  [LIMITE, 24818, 300],
+                  [LIMITE, 37228, 300],
                   [MAYONESA, 24218, 250],
-                  [VERSION_LARGA, 24718, 180]]
+                  [VERSION_LARGA, 24718, 180]
+                  ]
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al jugador.
         for plataforma in nivel:
@@ -77,10 +79,10 @@ class Level_02(Level):
         nivel_movimiento = [[VERSION_LARGA, 1250, 220, 1150, 1650, 220, 220, 2, 0],
                             [VERSION_LARGA, 3580, 250, 3600, 3600, 150, 450, 0, 2],
                             [MAYONESA, 4100, 120, 3900, 4300, 120, 120, 2, 0],
-                            [MAYONESA, 7460, 201, 7460, 7460, 200, 450, 0, 2],
+                            [MAYONESA, 7460, 201, 7460, 7460, 200, 470, 0, 2],
                             [MAYONESA, 8250, 90, 8250, 8900, 90, 90, 2, 0],
-                            [MAYONESA, 10900, 350,10600,10600,150, 450, 0, 2],
-                            [MAYONESA, 16250, 170,16250,16250,150, 450, 0, 2],
+                            [MAYONESA, 10900, 350,10600,10600,150, 470, 0, 2],
+                            [MAYONESA, 16250, 170,16250,16250,150, 470, 0, 2],
                             [VERSION_LARGA, 18600, 280,18300,18750,280, 280, 2, 0]]
         
         for platforma in nivel_movimiento:
@@ -171,3 +173,12 @@ class Level_02(Level):
             bloque.rect.y = plataforma[2]
             bloque.jugador = self.jugador
             self.lista_vidas.add(bloque)
+            
+        """nivel_gg=[[VERSION_LARGA, 24718, 180]]
+        
+        for plataforma in nivel_gg:
+            bloque = Plataforma(plataforma[0])
+            bloque.rect.x = plataforma[1]
+            bloque.rect.y = plataforma[2]
+            bloque.jugador = self.jugador
+            self.lista_gg.add(bloque)"""
