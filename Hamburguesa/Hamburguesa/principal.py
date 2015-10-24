@@ -93,6 +93,7 @@ def Play(pantalla,time2, jugador):
                 jugador_principal.nivel = nivel_actual
                 tiempo_comienzo = time() + time2
                 no_aparece_boss = True
+                jugador_principal.vidas = jugador_principal.vidas + 5
             else:
                 pantalla.fill(constantes.NEGRO)
                 texto_gameover3 = letraParaMarcador1.render(u"¡Has Ganado!", 1, constantes.ROJO)
@@ -295,9 +296,9 @@ def main():
             elif estado == 7:
                 opcion, estado = How_to_play.update(e, estado)
             elif estado == 8:
-                Play(pantalla, 140, jugador)
+                Play(pantalla, 200, jugador)
             elif estado == 9:
-                Play(pantalla, 110, jugador)
+                Play(pantalla, 140, jugador)
 
         if e.type == pygame.QUIT:
             salir = True
