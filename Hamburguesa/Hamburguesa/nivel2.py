@@ -63,8 +63,28 @@ class Level_02(Level):
                   [MAYONESA, 23718, 240],
                   [LIMITE, 37228, 300],
                   [MAYONESA, 24218, 250],
-                  [VERSION_LARGA, 24718, 180]
-                  ]
+                  [VERSION_LARGA, 24718, 180],
+                  [MAYONESA, 25350, 260],
+                  [MAYONESA, 25850, 170],
+                  [MAYONESA, 26300, 380],
+                  [MAYONESA, 26750, 270],
+                  [VERSION_LARGA, 27250, 260],
+                  [MAYONESA, 27868, 180],
+                  [MAYONESA, 28368, 170],
+                  [VERSION_LARGA, 28870, 190],
+                  [MAYONESA, 29470, 240],
+                  [MAYONESA, 29918, 250],
+                  [VERSION_LARGA, 31078, 180],
+                  [MAYONESA, 31710, 260],
+                  [MAYONESA, 32210, 170],
+                  [MAYONESA, 32660, 380],
+                  [MAYONESA, 33110, 270],
+                  [VERSION_LARGA, 33610, 260],
+                  [MAYONESA, 34228, 180],
+                  [MAYONESA, 34728, 170],
+                  [MAYONESA, 35828, 240],
+                  [MAYONESA, 36278, 250],
+                  [VERSION_LARGA, 36838, 180]]
 
         # Se busca en la lista anterior creada y se le agregan las plataformas al jugador.
         for plataforma in nivel:
@@ -82,7 +102,10 @@ class Level_02(Level):
                             [MAYONESA, 8250, 90, 8250, 8900, 90, 90, 2, 0],
                             [MAYONESA, 10900, 350,10600,10600,150, 470, 0, 2],
                             [MAYONESA, 16250, 170,16250,16250,150, 470, 0, 2],
-                            [VERSION_LARGA, 18600, 280,18300,18750,280, 280, 2, 0]]
+                            [VERSION_LARGA, 18600, 280,18300,18750,280, 280, 2, 0],
+                            [VERSION_LARGA, 35228, 190, 35228, 35228, 190, 440,0,2],
+                            [VERSION_LARGA, 30478, 180,30478,30478, 180,440,0,2],
+                            ]
         
         for platforma in nivel_movimiento:
             bloque = PlataformaConMovimiento(platforma[0])
@@ -113,7 +136,30 @@ class Level_02(Level):
                           [SACHET, 22000, 500],
                           [SACHET, 23218, 90],
                           [SACHET, 24218, 160],
-                          [SACHET, 24718, 120]]
+                          [SACHET, 24718, 120],
+                          [SACHET, 4546, 32],
+                          [SACHET, 7800, 9],
+                          [SACHET, 8800, 37],
+                          [SACHET, 9800, 11],
+                          [SACHET, 12550, 220],
+                          [SACHET, 15000, 300],
+                          [SACHET, 17050, 100],
+                          [SACHET, 18550, 120],
+                          [SACHET, 21050, 200],
+                          [SACHET, 22000, 500],
+                          [SACHET, 23218, 90],
+                          [SACHET, 24218, 160],
+                          [SACHET, 24718, 120],
+                          [SACHET, 26118, 30],
+                          [SACHET, 27212, 141],
+                          [SACHET, 29740, 60],
+                          [SACHET, 30110, 0],
+                          [SACHET, 31709, 60],
+                          [SACHET, 32144, 100],
+                          [SACHET, 33121, 60],
+                          [SACHET, 34701, 30],
+                          [SACHET, 35102, 30],
+                          [SACHET, 35909, 30]]
         
         for plataforma in nivel_puntos:
             bloque = Plataforma(plataforma[0])
@@ -146,7 +192,14 @@ class Level_02(Level):
                         [ENEMY, 16891, 535, 16891, 17191, 478, 478, 1.5, 0],
                         [ENEMY, 18891, 535, 18891, 19191, 478, 478, 1.5, 0],
                         [ENEMY, 20891, 535, 20891, 21191, 478, 478, 1.5, 0],
-                        [ENEMY, 22891, 535, 22891, 23191, 478, 478, 1.5, 0],]
+                        [ENEMY, 22891, 535, 22891, 23191, 478, 478, 1.5, 0],
+                        [ENEMY, 24891, 535, 24891, 25191, 478, 478, 1.5, 0],
+                        [ENEMY, 26891, 535, 26891, 27191, 478, 478, 1.5, 0],
+                        [ENEMY, 28891, 535, 28891, 29191, 478, 478, 1.5, 0],
+                        [ENEMY, 30891, 535, 30891, 31191, 478, 478, 1.5, 0],
+                        [ENEMY, 32891, 535, 32891, 33191, 478, 478, 1.5, 0],
+                        [ENEMY, 34891, 535, 34891, 35191, 478, 478, 1.5, 0]]
+        
               
         
         for platforma in nivel_enemigos:

@@ -22,7 +22,7 @@ class Player(pygame.sprite.Sprite):
 
     # Lista de sprite con las cosas que nos podemos chocar.
     nivel = None
-    vidas = 10
+    vidas = 10.5
     puntos = 0
     sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
     sonido2 = pygame.mixer.Sound("sonidos/CuchilloPlat.wav")
@@ -193,12 +193,15 @@ class Player(pygame.sprite.Sprite):
             un_punto.kill()
             self.puntos += 1
             self.sonido1.play()
+            print "punto" 
+            print pos
             
         # Verificamos si coalisionamos con un enemigo
         lista_de_enemigos = pygame.sprite.spritecollide(self, self.nivel.lista_enemigos, False)
         for un_enemigo in lista_de_enemigos:
             un_enemigo.kill()
             self.vidas -= 1
+            print "enemy"
             print pos
         
         # Verificamos si coalisionamos con una vida
@@ -224,7 +227,7 @@ class Player(pygame.sprite.Sprite):
         if self.mover_y == 0:
             self.mover_y = 1
         else:
-            self.mover_y += .25
+            self.mover_y += .125
 
         # Verificamos si estamos en el suelo.
         if self.rect.y >= self.nivel.limit_nivel_suelo - self.rect.height and self.mover_y >= 0:
@@ -258,5 +261,5 @@ class Player(pygame.sprite.Sprite):
         self.mover_x = 0
     
     def avanzarr(self):
-        self.mover_x = 100
+        self.mover_x = 75
         self.direccion = "R"
