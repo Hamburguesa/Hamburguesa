@@ -17,9 +17,9 @@ class Level_02(Level):
         Level.__init__(self, jugador)
         
         #Cargamos la imagen de fondo.
-        self.fondo = pygame.image.load("imagenes/fondo2.png").convert()
+        self.fondo = pygame.image.load("imagenes/fondo2super final.png").convert()
         self.fondo.set_colorkey(constantes.BLANCO2)
-        self.limite_nivel = -37486
+        self.limite_nivel = -45000
         self.limit_nivel_suelo=590
         self.posicion_bigboss = -34200
         

@@ -195,17 +195,20 @@ def main():
     Papas = pygame.image.load("imagenes/papafritafrente.png")
     
     
-    logo = pygame.image.load("imagenes/loguito.png").convert()
+    logo = pygame.image.load("imagenes/logo.png").convert()
     logo.set_colorkey(constantes.BLANCO)
-    pantalla.blit(logo, (0,0))
-    menu_principal = cMenu(120, 100, 75, 30, "vertical", 5, pantalla, [("Jugar", 1, None), ("Historia", 2, None), (u"Créditos", 3, None), (u"Cómo jugar", 7, None), ("Salir", 4, None)])
-    menuJugador = cMenu(160, 100, 75, 5, "vertical", 3, pantalla, [("", 5, Hamburger), ("", 6, Papas), ("Volver", 0, None)])
+    menu_principal = cMenu(10, 30, 75, 35, "vertical", 5, pantalla, [("Jugar", 1, None), ("Historia", 2, None), (u"Créditos", 3, None), (u"Cómo jugar", 7, None), ("Salir", 4, None)])
+    menuJugador = cMenu(160, 100, 75, 5, "horizontal", 3, pantalla, [("", 5, Hamburger), ("", 6, Papas), ("Volver", 0, None)])
     historia = cMenu(800, 500, 400, 400, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     creditos = cMenu(800, 500, 630, 348, 'horizontal', 1, pantalla, [("Volver", 0, None)])
     How_to_play = cMenu(800, 500, 630, 348, "horizontal", 1, pantalla, [("Volver", 0, None)])
     Menu_dificultad = cMenu(135, 120, 100, 100, "vertical", 3, pantalla, [(u"Fácil", 8, None), (u"Difícil", 9, None), ("Volver", 1, None)])
     
-
+    menuJugador.set_center(True, True)
+    menuJugador.set_alignment("center", "center")
+    
+    Menu_dificultad.set_center(True, True)
+    Menu_dificultad.set_alignment("center", "center")
     
     letraParaCreditos = pygame.font.Font(None, 45)
     estado = 0
@@ -238,20 +241,19 @@ def main():
 
             if estado == 0:
                 pantalla.fill(constantes.NEGRO)
-                pantalla.blit(logo, (0, 0))
+                pantalla.blit(logo, (300, 50))
                 pygame.display.flip()
             elif estado == 1:
                 pantalla.fill(constantes.NEGRO)
-                pantalla.blit(logo, (0, 0))
                 pygame.display.flip()
             elif estado == 2:
                 pantalla.fill(constantes.NEGRO)
-                pantalla.blit(logo, (0, 0))
+                pantalla.blit(logo, (200, 50))
                 pantalla.blit(historiaa,(200,80))
                 pygame.display.flip()
             elif estado == 3:
                 pantalla.fill(constantes.NEGRO)
-                pantalla.blit(logo, (0, 0))
+                pantalla.blit(logo, (200, 50))
                 pantalla.blit(CreditosReales1, (25, 20))
                 pantalla.blit(CreditosReales3, (25, 110))
                 pantalla.blit(CreditosReales4, (25, 200))
@@ -262,7 +264,7 @@ def main():
                 pygame.display.flip()
             elif estado == 7:
                 pantalla.fill(constantes.NEGRO)
-                pantalla.blit(logo, (0, 0))
+                pantalla.blit(logo, (200, 50))
                 pantalla.blit(textoCreditos1, (25, 10))
                 pantalla.blit(textoCreditos7, (25, 40))
                 pantalla.blit(textoCreditos2, (25, 110))
@@ -273,7 +275,6 @@ def main():
                 pygame.display.flip()
             else:
                 pantalla.fill(constantes.NEGRO)
-                pantalla.blit(logo, (0, 0))
                 pygame.display.flip()
 
         if e.type == pygame.KEYDOWN or e.type == menu.EVENT_CHANGE_STATE:

@@ -22,7 +22,7 @@ class Player(pygame.sprite.Sprite):
 
     # Lista de sprite con las cosas que nos podemos chocar.
     nivel = None
-    vidas = 10.5
+    vidas = 10
     puntos = 0
     sonido1 = pygame.mixer.Sound("sonidos/punto.wav")
     sonido2 = pygame.mixer.Sound("sonidos/CuchilloPlat.wav")
@@ -227,7 +227,7 @@ class Player(pygame.sprite.Sprite):
         if self.mover_y == 0:
             self.mover_y = 1
         else:
-            self.mover_y += .125
+            self.mover_y += .25
 
         # Verificamos si estamos en el suelo.
         if self.rect.y >= self.nivel.limit_nivel_suelo - self.rect.height and self.mover_y >= 0:
